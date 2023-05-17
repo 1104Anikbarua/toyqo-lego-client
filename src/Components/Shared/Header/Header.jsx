@@ -20,7 +20,7 @@ const Header = () => {
                     <img src={logo} alt="website nav logo" />
                 </Link>
                 <ul
-                    className={`flex items-center flex-col absolute duration-700 w-full bg-white shadow-sm justify-center
+                    className={`flex items-center flex-col absolute duration-700 w-full bg-white bg-opacity-5 shadow-sm justify-center
                 md:flex-row md:justify-end md:static md:shadow-none ${show ? 'top-[82px]' : '-top-96'}`}>
 
                     <li className="md:mr-5">
