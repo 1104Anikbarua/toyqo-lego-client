@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.true {
+    @apply font-roboto font-medium text-blue-600 text-lg
+}
+
+.false {
+    @apply font-roboto font-medium text-black text-lg
+}
