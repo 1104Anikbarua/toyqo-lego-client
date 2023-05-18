@@ -5,16 +5,16 @@ import Truck from './Truck/Truck';
 
 const Category = () => {
 
-    const [selected, setSelected] = useState('cars')
+    const [selected, setSelected] = useState('car')
     return (
         <div className='mt-32 w-full'>
             <div className='flex items-center justify-center'>
                 <p
                     className={`font-roboto font-bold text-lg mr-5 cursor-pointer 
                     w-40 rounded-md h-10 mt-5 flex items-center justify-center shadow-md bg-white 
-                    ${selected === 'cars' ? 'text-blue-500' : 'text-black'}
+                    ${selected === 'car' ? 'text-blue-500' : 'text-black'}
                     `}
-                    onClick={() => setSelected('cars')}>Cars Lego</p>
+                    onClick={() => setSelected('car')}>Cars Lego</p>
                 <p
                     className={`font-roboto font-bold text-lg mr-5 cursor-pointer 
                     w-40 rounded-md h-10 mt-5 flex items-center justify-center shadow-md bg-white 
@@ -29,7 +29,7 @@ const Category = () => {
                     onClick={() => setSelected('truck')}>Truck Lego</p>
             </div>
             {
-                selected === 'cars' && <Cars></Cars>
+                selected === 'car' && <Cars></Cars>
             }
             {
                 selected === 'bus' && <Bus></Bus>

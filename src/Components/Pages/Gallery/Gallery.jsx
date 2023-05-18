@@ -9,7 +9,7 @@ const Gallery = () => {
                         <img
                             alt="gallery"
                             className="block h-full w-full rounded-lg object-cover object-center"
-                            src="https://i.ibb.co/p0SLHj2/cars-two.png" />
+                            src="https://i.ibb.co/DGYLCdK/cars-two.png" />
                     </div>
                     <div className="w-1/2 p-1 md:p-2">
                         <img
@@ -43,7 +43,7 @@ const Gallery = () => {
                         <img
                             alt="gallery"
                             className="block h-full w-full rounded-lg object-cover object-center"
-                            src="https://i.ibb.co/SXv5Zx1/car-one.png" />
+                            src="https://i.ibb.co/dDgghyF/car-one.png" />
                     </div>
                 </div>
             </div>

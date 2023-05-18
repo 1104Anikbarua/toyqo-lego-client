@@ -6,9 +6,8 @@ import Swal from 'sweetalert2';
 
 const Cars = () => {
 
-
     const { user } = useContext(LegoContext)
-    const [legos] = UseLoader();
+    const [legos] = UseLoader('car');
 
     const handleClick = () => {
         if (!user?.email) {
