@@ -4,6 +4,8 @@ import Common from "../Pages/Common/Common";
 import Register from "../Shared/Authentication/Register/Register";
 import Login from "../Shared/Authentication/Login/Login";
 import NotFound from "../NotFound/NotFound";
+import AllToy from "../Pages/AllToy/AllToy";
+import MyToy from "../Pages/MyToy/MyToy";
 
 const router = createBrowserRouter([
     {
@@ -14,6 +16,14 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Common></Common>
+            },
+            {
+                path: 'all',
+                element: <AllToy></AllToy>
+            },
+            {
+                path: 'mytoy',
+                element: <MyToy></MyToy>
             },
             {
                 path: 'register',

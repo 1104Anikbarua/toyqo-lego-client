@@ -9,17 +9,25 @@ import { AiOutlineSwapRight } from 'react-icons/ai';
 import phone from '../../../assets/icon/smartphone.png'
 import message from '../../../assets/icon/text.png'
 import location from '../../../assets/icon/placeholder.png'
+import logo from '../../../assets/logo/logo.png';
 
 const Footer = () => {
     const today = new Date();
     const year = today.getFullYear();
     return (
-        <footer className="bg-white shadow-inner py-8 px-5 lg:px-20">
+        <footer className="bg-white shadow-inner py-8 px-5 lg:px-20 my-32">
             <div className="max-w-screen-xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     <div className="p-4">
                         <h3 className='font-roboto font-bold text-xl mb-5'>About us</h3>
                         <ul className="text-sm mb-5">
+                            <img
+                                data-aos="fade-right"
+                                data-aos-easing="ease-in-sine"
+                                data-aos-duration="500"
+                                data-aos-delay="100"
+
+                                className='w-12 lg:w-14 h-12 lg:h-14' src={logo} alt="" />
                             <p className='text-base font-medium'>
 
                                 Toyqo a Lego Selling Website.Over the years children shape their own worlds with LEGO bricks, we play our part in having a positive impact on the world they live in today and will inherit in the future.
