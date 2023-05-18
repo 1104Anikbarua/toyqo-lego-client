@@ -1,18 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css'
+import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
 
 const Picks = () => {
 
     const [weekPicks, setWeekPicks] = useState([]);
+    const [loading, setLoading] = useState(true)
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true)
             const response = await fetch('picks.json')
             const data = await response.json();
             setWeekPicks(data)
+            setLoading(false)
         }
         fetchData();
     }, [])
+
+    if (loading) {
+        return <LoadingSpinner></LoadingSpinner>
+    }
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
@@ -38,6 +46,9 @@ const Picks = () => {
                 responsive={responsive}
                 draggable={true}
                 swipeable={true}
+                autoPlay={true}
+                autoPlaySpeed={2000}
+                infinite={true}
                 containerClass='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
             gap-5'
                 itemClass='px-5 py-5'
