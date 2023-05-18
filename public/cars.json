@@ -3,18 +3,21 @@
         "image": "https://i.ibb.co/SXv5Zx1/car-one.png",
         "name": "LEGO Speed Champions Ferrari",
         "price": "39.99",
-        "rating": 4.5
+        "rating": 4.5,
+        "category": "car"
     },
     {
         "image": "https://i.ibb.co/SXv5Zx1/car-one.png",
         "name": "LEGO Technic Porsche 911",
         "price": "89.99",
-        "rating": 3.8
+        "rating": 3.8,
+        "category": "car"
     },
     {
         "image": "https://i.ibb.co/SXv5Zx1/car-one.png",
         "name": "LEGO Creator Ford Mustang",
         "price": "149.99",
-        "rating": 2.7
+        "rating": 2.7,
+        "category": "car"
     }
 ]

@@ -16,7 +16,7 @@ const CategoryCard = ({ lego }) => {
                 readOnly
             />
             <button
-                className='w-40 rounded-md h-10 mt-5 font-bold text-sm shadow-md bg-white'>Shop Now</button>
+                className='w-40 rounded-md h-10 mt-5 font-bold text-sm shadow-md bg-white'>View Details</button>
         </div>
     );
 };

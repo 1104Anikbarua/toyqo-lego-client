@@ -1,0 +1,44 @@
+[
+    {
+        "image": "https://i.ibb.co/HhKx0qG/bus-one.png",
+        "name": "City Bus",
+        "price": 29.99,
+        "rating": 4.5,
+        "category": "bus"
+    },
+    {
+        "image": "https://i.ibb.co/HhKx0qG/bus-one.png",
+        "name": "Vintage Bus",
+        "price": 34.99,
+        "rating": 4.3,
+        "category": "bus"
+    },
+    {
+        "image": "https://i.ibb.co/HhKx0qG/bus-one.png",
+        "name": "Tourist Bus",
+        "price": 49.99,
+        "rating": 4.4,
+        "category": "bus"
+    },
+    {
+        "image": "https://i.ibb.co/HhKx0qG/bus-one.png",
+        "name": "Minibus",
+        "price": 19.99,
+        "rating": 4.6,
+        "category": "bus"
+    },
+    {
+        "image": "https://i.ibb.co/HhKx0qG/bus-one.png",
+        "name": "School Bus",
+        "price": 24.99,
+        "rating": 4.7,
+        "category": "bus"
+    },
+    {
+        "image": "https://i.ibb.co/HhKx0qG/bus-one.png",
+        "name": "Double Decker Bus",
+        "price": 39.99,
+        "rating": 4.2,
+        "category": "bus"
+    }
+]
