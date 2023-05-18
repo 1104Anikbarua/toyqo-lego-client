@@ -1,15 +1,41 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import logo from '../../../assets/logo/logo.png';
 import { Link, NavLink } from 'react-router-dom';
 import { Sling as Hamburger } from 'hamburger-react'
 import { HiOutlineSearch } from 'react-icons/hi'
 import { GiSelfLove } from 'react-icons/gi'
 import { CgShoppingCart } from 'react-icons/cg'
+import { LegoContext } from '../../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Header = () => {
 
     const [show, setShow] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
+    const { user, logOutUser } = useContext(LegoContext);
+    // console.log(user)
+
+    const handleLogOutUser = () => {
+        logOutUser()
+            .then(() => {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: `Logout successful`,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+            .catch(() => {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: `Something went wrong`,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+    }
 
     return (
         <div className='flex items-center justify-between
@@ -34,30 +60,61 @@ const Header = () => {
                             Toys</NavLink>
 
                     </li>
-                    <li className="md:mr-5">
+                    {
+                        user
+                        &&
+                        <li className="md:mr-5">
 
-                        <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'my'}>My Toys</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'my'}>My Toys</NavLink>
 
-                    </li>
-                    <li className="md:mr-5">
-                        <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'add'}>Add Toy</NavLink>
-                    </li>
+                        </li>
+                    }
+                    {
+                        user
+                        &&
+                        <li className="md:mr-5">
+                            <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'add'}>Add Toy</NavLink>
+                        </li>
+                    }
 
                     <li className="md:mr-5">
                         <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'blog'}>Blog</NavLink>
                     </li>
 
-                    <li className="md:mr-5">
-                        <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'profile'}>
-                            <img src="" alt="" />
-                        </NavLink>
-                    </li>
-                    <li className="md:mr-5">
-                        <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'login'}>Login</NavLink>
-                    </li>
-                    <li className="md:mr-5">
-                        <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'register'}>Register</NavLink>
-                    </li>
+                    {
+                        user
+                        &&
+                        <li className="md:mr-5">
+                            <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'profile'}>
+                                <img
+                                    title={user?.displayName}
+                                    className='w-10 h-10 rounded-full'
+                                    src={user?.photoURL} alt="user photo" />
+                            </NavLink>
+                        </li>
+                    }
+
+                    {
+                        user
+                            ?
+                            <li className="md:mr-5">
+                                <NavLink
+                                    onClick={() => handleLogOutUser()}
+                                    className={({ isActive }) => isActive ? 'true' : 'false'} to={'login'}>Logout</NavLink>
+                            </li>
+
+
+
+                            : <li className="md:mr-5">
+                                <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'login'}>Login</NavLink>
+                            </li>
+                    }
+
+                    {!user &&
+                        <li className="md:mr-5">
+                            <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'register'}>Register</NavLink>
+                        </li>
+                    }
                 </ul>
             </div>
 
@@ -81,7 +138,7 @@ const Header = () => {
                     toggled={isOpen}
                     toggle={setIsOpen}></Hamburger>
             </div>
-        </div>
+        </div >
     );
 };
 

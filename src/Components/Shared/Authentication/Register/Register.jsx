@@ -17,9 +17,7 @@ const Register = () => {
 
     const { signUpUser, updateUser, setRefresh } = useContext(LegoContext);
 
-    // const imageKey = import.meta.env.VITE_IMAGE_KEY;
-    const imageKey = 'd531be8065497b95757adf0fefa4e0ab';
-
+    const imageKey = import.meta.env.VITE_IMAGE_KEY;
     // console.log(imageKey)
 
     const handlePhotoChange = (event) => {

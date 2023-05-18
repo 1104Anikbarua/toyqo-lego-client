@@ -39,10 +39,10 @@ const AuthProvider = ({ children }) => {
             photoURL: url,
         })
     }
-    // const logOutUser = () => {
-    //     setLoading(true)
-    //     return signOut(auth)
-    // }
+    const logOutUser = () => {
+        setLoading(true)
+        return signOut(auth)
+    }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -71,7 +71,7 @@ const AuthProvider = ({ children }) => {
         // verifyLogin,
         // logInUser,
         updateUser,
-        // logOutUser,
+        logOutUser,
         // googleSignUp,
         // resetPassword,
         user,
