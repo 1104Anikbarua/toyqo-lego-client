@@ -4,9 +4,9 @@ import Common from "../Pages/Common/Common";
 import Register from "../Shared/Authentication/Register/Register";
 import Login from "../Shared/Authentication/Login/Login";
 import NotFound from "../NotFound/NotFound";
-import AllToy from "../Pages/AllToy/AllToy";
 import MyToy from "../Pages/MyToy/MyToy";
 import AddToy from "../Pages/AddToy/AddToy";
+import AllToys from "../Pages/AllToy/AllToys";
 
 const router = createBrowserRouter([
     {
@@ -20,7 +20,10 @@ const router = createBrowserRouter([
             },
             {
                 path: 'alltoy',
-                element: <AllToy></AllToy>
+                element: <AllToys></AllToys>,
+                loader: () => {
+                    return fetch('http://localhost:5000/legos')
+                }
             },
             {
                 path: 'mytoy',

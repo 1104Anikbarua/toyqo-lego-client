@@ -8,7 +8,7 @@ const NotFound = () => {
     return (
         <div className='relative'>
             <button
-                className='absolute z-10 bg-white shadow-md w-40 h-10 rounded-lg font-roboto font-bold text-xl'
+                className='absolute z-10 bg-white shadow-md w-40 h-10 rounded-lg font-roboto font-bold text-xl border border-gray-100'
                 onClick={() => navigate(-1)}>Back</button>
             <Lottie
                 className='h-screen'

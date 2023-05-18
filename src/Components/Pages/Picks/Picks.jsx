@@ -66,7 +66,7 @@ const Picks = () => {
                             <p className='font-roboto font-medium text-xl'>{pick?.detail}</p>
 
                             <button
-                                className='w-40 rounded-md h-10 mt-5 font-bold text-sm shadow-lg bg-white'>Shop Now</button>
+                                className='w-40 rounded-md h-10 mt-5 font-bold text-sm shadow-lg bg-white border border-gray-100'>Shop Now</button>
                         </div>
                     </div>)
                 }

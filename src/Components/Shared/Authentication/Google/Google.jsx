@@ -27,7 +27,7 @@ const Google = () => {
     return (
         <div>
             <button onClick={handleSignUpGoogle}
-                className='flex font-roboto font-bold items-center my-5 justify-center shadow-md contrast-100 rounded-md bg-white py-1 uppercase w-full max-w-sm mx-auto'
+                className='flex font-roboto font-bold items-center my-5 justify-center shadow-md contrast-100 rounded-md bg-white py-1 uppercase w-full max-w-sm mx-auto border border-gray-100'
             >
                 <span className='mr-2'>
                     Continue With Google

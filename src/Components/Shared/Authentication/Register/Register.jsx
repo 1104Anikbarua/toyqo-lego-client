@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import Lottie from 'lottie-react';
 import login from '../Register/signup.json'
 import { HiOutlineCloudUpload } from 'react-icons/hi'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { LegoContext } from '../../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import Google from '../Google/Google';
@@ -25,6 +25,11 @@ const Register = () => {
         console.log(event.target.files[0])
         setPhoto(event.target.files[0])
     }
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state || '/';
 
 
     const handleRegisterUser = (event) => {
@@ -74,6 +79,7 @@ const Register = () => {
                                         timer: 1500
                                     })
                                 })
+                            navigate(from, { replace: true })
                         })
                         .catch((err) => {
                             const errorMessage = err.message;
@@ -81,9 +87,6 @@ const Register = () => {
                         })
                 }
             })
-
-
-
 
     }
 
@@ -200,7 +203,7 @@ const Register = () => {
                     }
                     <input className='bg-white contrast-100 font-roboto font-semibold cursor-pointer uppercase shadow-md
                     outline-none 
-                    rounded-md w-full max-w-sm mx-auto mt-5 py-1'
+                    rounded-md w-full max-w-sm mx-auto mt-5 py-1 border border-gray-100'
                         type="submit" value="Register" />
                     <p
                         className='font-roboto font-medium mt-2 w-full max-w-sm mx-auto'>Already have an account? Please <Link to={'/login'}

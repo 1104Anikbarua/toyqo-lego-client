@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import login from '../Register/signup.json'
 import Lottie from 'lottie-react'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { LegoContext } from '../../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import { HiEye } from 'react-icons/hi';
@@ -14,6 +14,12 @@ const Login = () => {
     const [error, setError] = useState('');
     const [email, setEmail] = useState('')
     const { verifyLogin, logInUser, resetPassword } = useContext(LegoContext);
+
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleLoginUser = (event) => {
         event.preventDefault();
@@ -34,6 +40,7 @@ const Login = () => {
                                 showConfirmButton: false,
                                 timer: 1500
                             })
+                            navigate(from, { replace: true })
                         })
                         .catch((e) => {
                             const message = e.message;
@@ -132,14 +139,16 @@ const Login = () => {
                     }
                     <input className='bg-white contrast-100 font-roboto font-semibold cursor-pointer uppercase shadow-md
                     outline-none 
-                    rounded-md w-full max-w-sm mx-auto mt-5 py-1'
+                    rounded-md w-full max-w-sm mx-auto mt-5 py-1 border border-gray-100'
                         type="submit" value="Register" />
                     <Link
                         onClick={handleResetPassword}
                         className='text-blue-500 w-full max-w-sm mx-auto font-roboto'
                     >Forget Password?</Link>
                     <p
-                        className='font-roboto font-medium mt-2 w-full max-w-sm mx-auto'>New to this website? Please <Link to={'/register'}
+                        className='font-roboto font-medium mt-2 w-full max-w-sm mx-auto'>New to this website? Please <Link
+                            state={from}
+                            to={'/register'}
                             className='text-blue-500'>Register</Link></p>
                 </form>
                 <Google></Google>

@@ -12,7 +12,7 @@ const Banner = () => {
                 <p
                     className='text-5xl font-medium text-center font-roboto text-white'>Celebrate 100 years of LEGO<sup className='text-white'>&reg;</sup> </p>
                 <button
-                    className='w-40 rounded-md h-10 mt-5 font-bold text-sm bg-white/90'>Shop Now</button>
+                    className='w-40 rounded-md h-10 mt-5 font-bold text-sm bg-white/90 border border-gray-100'>Shop Now</button>
             </div>
         </div>
     );

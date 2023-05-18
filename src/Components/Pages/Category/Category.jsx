@@ -11,19 +11,19 @@ const Category = () => {
             <div className='flex items-center justify-center'>
                 <p
                     className={`font-roboto font-bold text-lg mr-5 cursor-pointer 
-                    w-40 rounded-md h-10 mt-5 flex items-center justify-center shadow-md bg-white 
+                    w-40 rounded-md h-10 mt-5 flex items-center justify-center shadow-md bg-white border border-gray-100
                     ${selected === 'car' ? 'text-blue-500' : 'text-black'}
                     `}
                     onClick={() => setSelected('car')}>Cars Lego</p>
                 <p
                     className={`font-roboto font-bold text-lg mr-5 cursor-pointer 
-                    w-40 rounded-md h-10 mt-5 flex items-center justify-center shadow-md bg-white 
+                    w-40 rounded-md h-10 mt-5 flex items-center justify-center shadow-md bg-white border border-gray-100
                     ${selected === 'bus' ? 'text-blue-500' : ''}
                     `}
                     onClick={() => setSelected('bus')}>Bus Lego</p>
                 <p
                     className={`font-roboto font-bold text-lg mr-5 cursor-pointer 
-                    w-40 rounded-md h-10 mt-5 flex items-center justify-center shadow-md bg-white 
+                    w-40 rounded-md h-10 mt-5 flex items-center justify-center shadow-md bg-white border border-gray-100
                     ${selected === 'truck' ? 'text-blue-500' : ''}
                     `}
                     onClick={() => setSelected('truck')}>Truck Lego</p>
