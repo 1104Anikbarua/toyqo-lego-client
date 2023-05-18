@@ -18,20 +18,20 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
     }
-    // const verifyLogin = (email, password) => {
-    //     setLoading(true);
-    //     const userInfo = {
-    //         email,
-    //         password,
-    //         returnSecureToken: true
-    //     }
-    //     return axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDdGFNW7K34VXhEGrTOmT6WNfq7cQ5IrSs`, userInfo)
-    // }
+    const verifyLogin = (email, password) => {
+        setLoading(true);
+        const userInfo = {
+            email,
+            password,
+            returnSecureToken: true
+        }
+        return axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDdGFNW7K34VXhEGrTOmT6WNfq7cQ5IrSs`, userInfo)
+    }
 
-    // const logInUser = (email, password) => {
-    //     setLoading(true)
-    //     return signInWithEmailAndPassword(auth, email, password)
-    // }
+    const logInUser = (email, password) => {
+        setLoading(true)
+        return signInWithEmailAndPassword(auth, email, password)
+    }
 
     const updateUser = (name, url) => {
         return updateProfile(auth.currentUser, {
@@ -61,19 +61,19 @@ const AuthProvider = ({ children }) => {
     //     return signInWithPopup(auth, googleProvider)
     // }
 
-    // const resetPassword = (email) => {
-    //     return sendPasswordResetEmail(auth, email)
-    // }
+    const resetPassword = (email) => {
+        return sendPasswordResetEmail(auth, email)
+    }
 
 
     const authInfo = {
         signUpUser,
-        // verifyLogin,
-        // logInUser,
+        verifyLogin,
+        logInUser,
         updateUser,
         logOutUser,
         // googleSignUp,
-        // resetPassword,
+        resetPassword,
         user,
         loading,
         setRefresh,
