@@ -3,11 +3,13 @@ import Main from "../Main.jsx/Main";
 import Common from "../Pages/Common/Common";
 import Register from "../Shared/Authentication/Register/Register";
 import Login from "../Shared/Authentication/Login/Login";
+import NotFound from "../NotFound/NotFound";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <NotFound></NotFound>,
         children: [
             {
                 path: '/',

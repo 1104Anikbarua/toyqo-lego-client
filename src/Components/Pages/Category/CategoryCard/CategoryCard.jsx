@@ -1,8 +1,12 @@
 import { Rating } from '@smastrom/react-rating';
-import React from 'react';
+import React, { useContext } from 'react';
+import { LegoContext } from '../../../AuthProvider/AuthProvider';
 
-const CategoryCard = ({ lego }) => {
+const CategoryCard = ({ lego, handleClick, handleToyDetail }) => {
+    const { user } = useContext(LegoContext)
     const { name, price, rating, image } = lego;
+
+    const handleClickEvent = user?.email ? handleToyDetail : handleClick;
     return (
         <div className='bg-yellow-100 rounded-md w-full max-w-sm h-full p-5'>
             <div>
@@ -16,6 +20,7 @@ const CategoryCard = ({ lego }) => {
                 readOnly
             />
             <button
+                onClick={handleClickEvent}
                 className='w-40 rounded-md h-10 mt-5 font-bold text-sm shadow-md bg-white'>View Details</button>
         </div>
     );
