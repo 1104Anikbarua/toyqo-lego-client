@@ -56,7 +56,7 @@ const Header = () => {
                     </li>
                     <li className="md:mr-5">
 
-                        <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'all'}>All
+                        <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'alltoy'}>All
                             Toys</NavLink>
 
                     </li>
@@ -65,7 +65,7 @@ const Header = () => {
                         &&
                         <li className="md:mr-5">
 
-                            <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'my'}>My Toys</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'mytoy'}>My Toys</NavLink>
 
                         </li>
                     }
@@ -73,7 +73,7 @@ const Header = () => {
                         user
                         &&
                         <li className="md:mr-5">
-                            <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'add'}>Add Toy</NavLink>
+                            <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'addtoy'}>Add Toy</NavLink>
                         </li>
                     }
 
