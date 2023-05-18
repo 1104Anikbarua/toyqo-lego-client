@@ -6,6 +6,7 @@ import { LegoContext } from '../../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import { HiEye } from 'react-icons/hi';
 import { HiEyeSlash } from 'react-icons/hi2';
+import Google from '../Google/Google';
 
 const Login = () => {
 
@@ -135,12 +136,13 @@ const Login = () => {
                         type="submit" value="Register" />
                     <Link
                         onClick={handleResetPassword}
-                        className='text-blue-500 w-full max-w-sm mx-auto'
+                        className='text-blue-500 w-full max-w-sm mx-auto font-roboto'
                     >Forget Password?</Link>
                     <p
                         className='font-roboto font-medium mt-2 w-full max-w-sm mx-auto'>New to this website? Please <Link to={'/register'}
                             className='text-blue-500'>Register</Link></p>
                 </form>
+                <Google></Google>
             </div>
         </div>
     );

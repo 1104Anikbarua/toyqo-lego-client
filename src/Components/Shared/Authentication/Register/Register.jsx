@@ -5,6 +5,7 @@ import { HiOutlineCloudUpload } from 'react-icons/hi'
 import { Link } from 'react-router-dom';
 import { LegoContext } from '../../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import Google from '../Google/Google';
 
 const Register = () => {
 
@@ -205,6 +206,7 @@ const Register = () => {
                         className='font-roboto font-medium mt-2 w-full max-w-sm mx-auto'>Already have an account? Please <Link to={'/login'}
                             className='text-blue-500'>Login</Link></p>
                 </form>
+                <Google></Google>
             </div>
         </div>
     );

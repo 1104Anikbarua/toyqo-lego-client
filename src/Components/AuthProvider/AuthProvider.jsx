@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [refresh, setRefresh] = useState(null);
 
-    // const googleProvider = new GoogleAuthProvider();
+    const googleProvider = new GoogleAuthProvider();
 
 
     const signUpUser = (email, password) => {
@@ -56,10 +56,10 @@ const AuthProvider = ({ children }) => {
         }
     }, [refresh])
 
-    // const googleSignUp = () => {
-    //     setLoading(true)
-    //     return signInWithPopup(auth, googleProvider)
-    // }
+    const googleSignUp = () => {
+        setLoading(true)
+        return signInWithPopup(auth, googleProvider)
+    }
 
     const resetPassword = (email) => {
         return sendPasswordResetEmail(auth, email)
@@ -72,7 +72,7 @@ const AuthProvider = ({ children }) => {
         logInUser,
         updateUser,
         logOutUser,
-        // googleSignUp,
+        googleSignUp,
         resetPassword,
         user,
         loading,
