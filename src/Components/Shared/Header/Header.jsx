@@ -42,13 +42,21 @@ const Header = () => {
                     <li className="md:mr-5">
                         <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'add'}>Add Toy</NavLink>
                     </li>
+
                     <li className="md:mr-5">
                         <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'blog'}>Blog</NavLink>
                     </li>
+
                     <li className="md:mr-5">
                         <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'profile'}>
                             <img src="" alt="" />
                         </NavLink>
+                    </li>
+                    <li className="md:mr-5">
+                        <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'login'}>Login</NavLink>
+                    </li>
+                    <li className="md:mr-5">
+                        <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'register'}>Register</NavLink>
                     </li>
                 </ul>
             </div>
