@@ -5,7 +5,7 @@ const LoadingSpinner = () => {
 
     const override = {
         display: "block",
-        margin: "0 auto",
+        margin: "300px auto",
     };
     return (
         <div className='min-h-screen'>

@@ -8,6 +8,7 @@ import MyToy from "../Pages/MyToy/MyToy";
 import AddToy from "../Pages/AddToy/AddToy";
 import AllToys from "../Pages/AllToy/AllToys";
 import ToyDetails from "../Pages/ToyDetails/ToyDetails";
+import UpdateToy from "../Pages/UpdateToy/UpdateToy";
 
 const router = createBrowserRouter([
     {
@@ -22,9 +23,6 @@ const router = createBrowserRouter([
             {
                 path: 'alltoy',
                 element: <AllToys></AllToys>,
-                loader: () => {
-                    return fetch('http://localhost:5000/legos')
-                }
             },
             {
                 path: 'mytoy',
@@ -37,6 +35,10 @@ const router = createBrowserRouter([
             {
                 path: 'toy/:id',
                 element: <ToyDetails></ToyDetails>
+            },
+            {
+                path: 'update/:id',
+                element: <UpdateToy></UpdateToy>
             },
             {
                 path: 'register',
