@@ -9,7 +9,7 @@ const AllToys = () => {
     const location = useLocation();
 
     const handleViewDetail = (id) => {
-        console.log('Hello user', id);
+        // console.log('Hello user', id);
         navigate(`/toy/${id}`);
     };
 
@@ -31,6 +31,22 @@ const AllToys = () => {
 
     return (
         <div className="my-32 w-full max-w-7xl mx-auto">
+
+            <div className="w-full max-w-sm mx-auto flex flex-wrap items-center justify-center">
+                <input
+                    className="bg-blue-100 outline-none rounded-s-md pl-1 py-2 placeholder:pl-2 mb-5 flex-grow"
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Toy Name"
+                />
+                <button className="bg-white rounded-e-md h-10 font-bold cursor-pointer shadow-md border border-gray-500 px-4 ml-0 mb-5">
+                    Search
+                </button>
+            </div>
+
+
+
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
