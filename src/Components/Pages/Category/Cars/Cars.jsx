@@ -3,11 +3,13 @@ import UseLoader from '../../../Hook/UseLoader';
 import CategoryCard from '../CategoryCard/CategoryCard';
 import { LegoContext } from '../../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const Cars = () => {
 
     const { user } = useContext(LegoContext)
     const [legos] = UseLoader('car');
+    const navigate = useNavigate();
 
     const handleClick = () => {
         if (!user?.email) {
@@ -18,10 +20,12 @@ const Cars = () => {
                 showConfirmButton: false,
                 timer: 1500
             })
+            navigate('/login')
         }
     }
-    const handleToyDetail = () => {
-        console.log('click')
+    const handleToyDetail = (id) => {
+        // console.log('Hello user', id);
+        navigate(`/toy/${id}`);
     }
 
     return (

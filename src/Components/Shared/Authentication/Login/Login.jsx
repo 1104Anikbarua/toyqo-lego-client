@@ -28,7 +28,7 @@ const Login = () => {
         // console.log(email, password)
         verifyLogin(email, password)
             .then((res) => {
-                console.log(res)
+                // console.log(res)
                 if (res.status === 200) {
                     logInUser(email, password)
                         .then((result) => {
@@ -56,7 +56,7 @@ const Login = () => {
     }
 
     const handleEmail = (event) => {
-        console.log(event.target.value)
+        // console.log(event.target.value)
         setEmail(event.target.value)
     }
     const handleResetPassword = () => {
@@ -140,7 +140,7 @@ const Login = () => {
                     <input className='bg-white contrast-100 font-roboto font-semibold cursor-pointer uppercase shadow-md
                     outline-none 
                     rounded-md w-full max-w-sm mx-auto mt-5 py-1 border border-gray-100'
-                        type="submit" value="Register" />
+                        type="submit" value="Login" />
                     <Link
                         onClick={handleResetPassword}
                         className='text-blue-500 w-full max-w-sm mx-auto font-roboto'

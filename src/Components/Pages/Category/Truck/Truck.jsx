@@ -2,10 +2,13 @@ import React, { useContext } from 'react';
 import { LegoContext } from '../../../AuthProvider/AuthProvider';
 import UseLoader from '../../../Hook/UseLoader';
 import CategoryCard from '../CategoryCard/CategoryCard';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Truck = () => {
     const { user } = useContext(LegoContext)
     const [legos] = UseLoader('truck');
+    const navigate = useNavigate();
 
     const handleClick = () => {
         if (!user?.email) {
@@ -16,11 +19,15 @@ const Truck = () => {
                 showConfirmButton: false,
                 timer: 1500
             })
+            navigate('/login')
         }
     }
-    const handleToyDetail = () => {
-        console.log('click')
+    const handleToyDetail = (id) => {
+        // console.log('Hello user', id);
+        navigate(`/toy/${id}`);
     }
+
+
     return (
         <div
 

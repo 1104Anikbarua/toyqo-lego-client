@@ -4,9 +4,19 @@ import { LegoContext } from '../../../AuthProvider/AuthProvider';
 
 const CategoryCard = ({ lego, handleClick, handleToyDetail }) => {
     const { user } = useContext(LegoContext)
-    const { name, price, rating, image } = lego;
+    // console.log(lego)
+    const { _id, name, price, rating, image } = lego;
 
-    const handleClickEvent = user?.email ? handleToyDetail : handleClick;
+    const handleClickEvent = () => {
+        if (user?.email) {
+            handleToyDetail(_id)
+        }
+        else {
+            handleClick()
+        }
+    }
+
+    // const handleClickEvent = user?.email ? handleToyDetail : handleClick;
     return (
         <div className='bg-yellow-100 rounded-md w-full max-w-sm h-full p-5'>
             <div>
