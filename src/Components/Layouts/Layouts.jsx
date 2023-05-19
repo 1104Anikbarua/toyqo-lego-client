@@ -38,7 +38,11 @@ const router = createBrowserRouter([
             },
             {
                 path: 'update/:id',
-                element: <UpdateToy></UpdateToy>
+                element: <UpdateToy></UpdateToy>,
+                // loader: ({ params }) => {
+                //     console.log(params)
+                //     return fetch(`http://localhost:5000/update/${params?.id}`)
+                // }
             },
             {
                 path: 'register',

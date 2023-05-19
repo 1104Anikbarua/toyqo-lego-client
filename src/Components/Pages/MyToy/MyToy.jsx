@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { LegoContext } from '../../AuthProvider/AuthProvider';
 import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
+import { Rating } from '@smastrom/react-rating';
+import { useNavigate } from 'react-router-dom';
 
 const MyToy = () => {
     const [loading, setLoading] = useState(false);
@@ -16,6 +18,13 @@ const MyToy = () => {
                 setLoading(false);
             });
     }, [user?.email]);
+
+    const navigate = useNavigate();
+
+    const handleupdate = (id) => {
+        // console.log(id)
+        navigate(`/update/${id}`)
+    }
 
     return (
         <>
@@ -54,7 +63,7 @@ const MyToy = () => {
                                         <td>
                                             <div className="avatar">
                                                 <div className="w-32 rounded">
-                                                    <img src="" alt='' />
+                                                    <img src={lego?.toyPhoto} alt='' />
                                                 </div>
                                             </div>
                                         </td>
@@ -63,12 +72,21 @@ const MyToy = () => {
                                         <td className="font-bold font-roboto">{lego?.sellerEmail}</td>
                                         <td className="font-bold font-roboto">{lego?.category}</td>
                                         <td className="font-bold font-roboto">$ {lego?.price}</td>
-                                        <td className="font-bold font-roboto">{lego?.rating}</td>
+                                        <td className="font-bold font-roboto">
+                                            <Rating
+                                                style={{ width: 150 }}
+                                                value={Math.round(lego?.rating) || 0}
+                                                readOnly
+                                            ></Rating>
+                                        </td>
                                         <td className="font-bold font-roboto">{lego?.quantity}</td>
 
                                         <td className="font-bold font-roboto">
                                             <div className="flex justify-center space-x-6">
-                                                <button className="bg-white rounded-md h-10 font-bold cursor-pointer shadow-md border border-gray-500 px-4">
+                                                <button
+                                                    onClick={() => handleupdate(lego?._id)}
+
+                                                    className="bg-white rounded-md h-10 font-bold cursor-pointer shadow-md border border-gray-500 px-4">
                                                     Update
                                                 </button>
                                                 <button className="bg-red-500 rounded-md h-10 font-bold cursor-pointer text-white shadow-md px-4">
@@ -81,7 +99,7 @@ const MyToy = () => {
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div >
             )}
         </>
     );

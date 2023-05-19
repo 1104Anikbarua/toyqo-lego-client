@@ -5,7 +5,9 @@ import { LegoContext } from '../../../AuthProvider/AuthProvider';
 const CategoryCard = ({ lego, handleClick, handleToyDetail }) => {
     const { user } = useContext(LegoContext)
     // console.log(lego)
-    const { _id, name, price, rating, image } = lego;
+    const { _id, toyName, price, rating, toyPhoto } = lego;
+
+    // console.log(toyName)
 
     const handleClickEvent = () => {
         if (user?.email) {
@@ -20,9 +22,9 @@ const CategoryCard = ({ lego, handleClick, handleToyDetail }) => {
     return (
         <div className='bg-yellow-100 rounded-md w-full max-w-sm h-full p-5'>
             <div>
-                <img className='w-full rounded-md h-56' src='https://res.cloudinary.com/dmqgkr30q/image/upload/v1684443500/cars-two_io17pu.png' alt="lego image" />
+                <img className='w-full rounded-md h-56' src={toyPhoto} alt="lego image" />
             </div>
-            <h1 className='font-roboto font-bold text-xl'>{name}</h1>
+            <h1 className='font-roboto font-bold text-xl'>{toyName}</h1>
             <p className='font-roboto font-medium text-xl'>Price: ${price}</p>
             <Rating
                 style={{ maxWidth: 100 }}
