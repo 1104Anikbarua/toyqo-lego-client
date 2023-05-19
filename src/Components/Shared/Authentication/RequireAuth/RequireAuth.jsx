@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { LegoContext } from '../../../AuthProvider/AuthProvider';
 import { Navigate, useLocation } from 'react-router-dom';
+import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
 const RequireAuth = ({ children }) => {
 

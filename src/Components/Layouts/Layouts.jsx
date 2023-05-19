@@ -9,6 +9,7 @@ import AddToy from "../Pages/AddToy/AddToy";
 import AllToys from "../Pages/AllToy/AllToys";
 import ToyDetails from "../Pages/ToyDetails/ToyDetails";
 import UpdateToy from "../Pages/UpdateToy/UpdateToy";
+import RequireAuth from "../Shared/Authentication/RequireAuth/RequireAuth";
 
 const router = createBrowserRouter([
     {
@@ -26,15 +27,22 @@ const router = createBrowserRouter([
             },
             {
                 path: 'mytoy',
-                element: <MyToy></MyToy>
+                element: <RequireAuth>
+                    <MyToy></MyToy>
+                </RequireAuth>
             },
             {
                 path: 'addtoy',
-                element: <AddToy></AddToy>
+                element: <RequireAuth>
+                    <AddToy></AddToy>
+                </RequireAuth>
+
             },
             {
                 path: 'toy/:id',
-                element: <ToyDetails></ToyDetails>,
+                element: <RequireAuth>
+                    <ToyDetails></ToyDetails>,
+                </RequireAuth>,
                 loader: ({ params }) => {
                     // console.log(params)
                     return fetch(`http://localhost:5000/legos/${params?.id}`)

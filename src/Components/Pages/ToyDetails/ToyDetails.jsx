@@ -1,13 +1,16 @@
 import { Rating } from '@smastrom/react-rating';
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useLocation } from 'react-router-dom';
 import mastercard from '../../../assets/icon/card.png'
 import visacard from '../../../assets/icon/visa.png'
 import paypal from '../../../assets/icon/paypal.png'
+import UseScroll from '../../UseScroll/UseScroll';
 
 const ToyDetails = () => {
 
     const legos = useLoaderData();
+    const { pathname } = useLocation();
+    UseScroll(pathname);
 
     return (
         <div className='mt-32 mx-auto w-full max-w-7xl px-5 lg:px-0'>
@@ -32,6 +35,7 @@ const ToyDetails = () => {
                         <h3 className='font-roboto font-medium text-xl line-through text-gray-400/80'>${legos?.price}</h3>
 
                     </div>
+
                     <p className='font-roboto font-medium text-xl mb-5'>
                         Availablity:
 
@@ -40,6 +44,8 @@ const ToyDetails = () => {
                             {' ' + legos?.quantity} left in stock
                         </span></p>
                     <p className='font-roboto font-medium text-xl mb-5 w-full max-w-lg'>{legos?.detail}</p>
+                    <h3 className='font-roboto font-medium text-xl mb-5'>Seller Name: {legos.sellerName}</h3>
+                    <h3 className='font-roboto font-medium text-xl mb-5'>Seller Name: {legos.sellerEmail}</h3>
                     <div className='flex items-center mb-5'>
                         <h3 className='font-roboto font-medium text-xl mr-1'>Color:</h3>
                         <p className='bg-red-400 w-5 h-5 mr-2'></p>

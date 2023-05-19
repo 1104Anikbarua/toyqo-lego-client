@@ -9,7 +9,7 @@ const NotFound = () => {
         <div className='relative'>
             <button
                 className='absolute z-10 bg-white shadow-md w-40 h-10 rounded-lg font-roboto font-bold text-xl border border-gray-100'
-                onClick={() => navigate(-1)}>Back</button>
+                onClick={() => navigate('/')}>Back To Home</button>
             <Lottie
                 className='h-screen'
                 animationData={error} loop={true} />;
