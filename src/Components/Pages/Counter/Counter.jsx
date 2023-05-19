@@ -12,7 +12,12 @@ const Counter = () => {
             <div
                 className='w-full mx-auto max-w-7xl text-center overflow-x-hidden mb-5'
             >
-                <h1 className='text-7xl text-center font-bold font-roboto'>
+                <h1
+                    data-aos="zoom-in"
+                    data-aos-easing="ease-in-sine"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    className='text-7xl text-center font-bold font-roboto'>
                     Total Page Views
                 </h1>
                 <div className="stats shadow-2xl flex items-center justify-center">

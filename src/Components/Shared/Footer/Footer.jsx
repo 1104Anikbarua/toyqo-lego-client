@@ -19,20 +19,35 @@ const Footer = () => {
             <div className="max-w-screen-xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     <div className="p-4">
-                        <h3 className='font-roboto font-bold text-xl mb-5'>About us</h3>
+                        <h3
+                            data-aos="fade-down"
+                            data-aos-easing="ease-in-sine"
+                            data-aos-duration="1000"
+                            data-aos-delay="1200"
+                            className='font-roboto font-bold text-xl mb-5'>About us</h3>
                         <ul className="text-sm mb-5">
                             <img
-                                data-aos="fade-right"
+                                data-aos="fade-down"
                                 data-aos-easing="ease-in-sine"
-                                data-aos-duration="500"
-                                data-aos-delay="100"
+                                data-aos-duration="1000"
+                                data-aos-delay="900"
 
                                 className='w-12 lg:w-14 h-12 lg:h-14' src={logo} alt="" />
-                            <p className='text-base font-medium'>
+                            <p
+                                data-aos="fade-down"
+                                data-aos-easing="ease-in-sine"
+                                data-aos-duration="1000"
+                                data-aos-delay="500"
+                                className='text-base font-medium'>
 
                                 Toyqo a Lego Selling Website.Over the years children shape their own worlds with LEGO bricks, we play our part in having a positive impact on the world they live in today and will inherit in the future.
                             </p>
-                            <Link className='text-base font-medium flex items-end hover:text-blue-500'
+                            <Link
+                                data-aos="fade-down"
+                                data-aos-easing="ease-in-sine"
+                                data-aos-duration="1000"
+                                data-aos-delay="100"
+                                className='text-base font-medium flex items-end hover:text-blue-500'
                                 to={'about'}>Read More
 
                                 <AiOutlineSwapRight className='font-semibold text-xl'></AiOutlineSwapRight>
@@ -88,16 +103,37 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className="p-4">
-                        <h3 className='font-roboto font-bold text-xl mb-5'>Information</h3>
+                        <h3
+                            data-aos="fade-down"
+                            data-aos-easing="ease-in-sine"
+                            data-aos-duration="1000"
+                            data-aos-delay="1100"
+
+                            className='font-roboto font-bold text-xl mb-5'>Information</h3>
                         <div className='flex flex-col items-start gap-5 mb-5 list-none'>
 
-                            <li className='font-roboto font-medium text-base'>
+                            <li
+                                data-aos="fade-down"
+                                data-aos-easing="ease-in-sine"
+                                data-aos-duration="1000"
+                                data-aos-delay="900"
+                                className='font-roboto font-medium text-base'>
                                 <Link>Term&apos;s & Condition&apos;s</Link>
                             </li>
-                            <li className='font-roboto font-medium text-base'>
+                            <li
+                                data-aos="fade-down"
+                                data-aos-easing="ease-in-sine"
+                                data-aos-duration="1000"
+                                data-aos-delay="700"
+                                className='font-roboto font-medium text-base'>
                                 <Link>Payment Method</Link>
                             </li>
-                            <li className='font-roboto font-medium text-base'>
+                            <li
+                                data-aos="fade-down"
+                                data-aos-easing="ease-in-sine"
+                                data-aos-duration="1000"
+                                data-aos-delay="500"
+                                className='font-roboto font-medium text-base'>
                                 <Link>Product Warrenty</Link>
                             </li>
                         </div>
@@ -105,7 +141,12 @@ const Footer = () => {
 
                     </div>
                     <div className="p-4">
-                        <h3 className="font-roboto text-lg font-bold mb-5">Contact Us</h3>
+                        <h3
+                            data-aos="fade-down"
+                            data-aos-easing="ease-in-sine"
+                            data-aos-duration="1000"
+                            data-aos-delay="1100"
+                            className="font-roboto text-lg font-bold mb-5">Contact Us</h3>
                         <div className='flex flex-col gap-5'>
 
                             <ul className='flex flex-col gap-5 list-none'>

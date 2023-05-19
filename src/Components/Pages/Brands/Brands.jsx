@@ -4,7 +4,12 @@ import Marquee from 'react-fast-marquee';
 const Brands = () => {
     return (
         <div className='my-28'>
-            <h1 className='font-roboto font-bold text-7xl text-center mb-5'>Lego Brands We Have</h1>
+            <h1
+                data-aos="zoom-in"
+                data-aos-easing="ease-in-sine"
+                data-aos-duration="2000"
+                data-aos-delay="100"
+                className='font-roboto font-bold text-7xl text-center mb-5'>Lego Brands We Have</h1>
             <Marquee
                 className='w-96 text-center
                 overflow-x-hidden'
