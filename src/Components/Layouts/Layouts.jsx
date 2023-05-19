@@ -34,15 +34,16 @@ const router = createBrowserRouter([
             },
             {
                 path: 'toy/:id',
-                element: <ToyDetails></ToyDetails>
+                element: <ToyDetails></ToyDetails>,
+                loader: ({ params }) => {
+                    // console.log(params)
+                    return fetch(`http://localhost:5000/legos/${params?.id}`)
+                }
             },
             {
                 path: 'update/:id',
                 element: <UpdateToy></UpdateToy>,
-                // loader: ({ params }) => {
-                //     console.log(params)
-                //     return fetch(`http://localhost:5000/update/${params?.id}`)
-                // }
+
             },
             {
                 path: 'register',
