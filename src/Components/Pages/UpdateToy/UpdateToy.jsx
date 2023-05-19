@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const UpdateToy = () => {
 
@@ -24,7 +25,19 @@ const UpdateToy = () => {
             body: JSON.stringify(updateInfo)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'warning',
+                        title: `Update success`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+
+            })
     }
     return (
         <div className='my-32 w-full max-w-7xl mx-auto px-5 lg:px-0'>

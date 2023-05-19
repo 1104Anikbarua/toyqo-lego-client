@@ -3,6 +3,7 @@ import { LegoContext } from '../../AuthProvider/AuthProvider';
 import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
 import { Rating } from '@smastrom/react-rating';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const MyToy = () => {
     const [loading, setLoading] = useState(false);
@@ -24,6 +25,41 @@ const MyToy = () => {
     const handleupdate = (id) => {
         // console.log(id)
         navigate(`/update/${id}`)
+    }
+
+    const handleRemoveLego = (id) => {
+        // console.log(id)
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5000/toys/${id}`, {
+                    method: "DELETE",
+                })
+                    .then((res => res.json()))
+                    .then(data => {
+                        console.log(data)
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+
+                            const remaining = legos?.filter((lego) => lego._id !== id)
+                            setLegos(remaining);
+                        }
+                    })
+
+            }
+        })
     }
 
     return (
@@ -89,7 +125,9 @@ const MyToy = () => {
                                                     className="bg-white rounded-md h-10 font-bold cursor-pointer shadow-md border border-gray-500 px-4">
                                                     Update
                                                 </button>
-                                                <button className="bg-red-500 rounded-md h-10 font-bold cursor-pointer text-white shadow-md px-4">
+                                                <button
+                                                    onClick={() => handleRemoveLego(lego?._id)}
+                                                    className="bg-red-500 rounded-md h-10 font-bold cursor-pointer text-white shadow-md px-4">
                                                     Delete
                                                 </button>
                                             </div>
