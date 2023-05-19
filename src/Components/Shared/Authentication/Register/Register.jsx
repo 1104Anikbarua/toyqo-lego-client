@@ -6,6 +6,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { LegoContext } from '../../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import Google from '../Google/Google';
+import UseScroll from '../../../UseScroll/UseScroll';
+import PageTitle from '../../PageTitle/PageTitle';
 
 const Register = () => {
 
@@ -30,6 +32,8 @@ const Register = () => {
     const location = useLocation();
 
     const from = location.state || '/';
+
+    UseScroll(location?.pathname)
 
 
     const handleRegisterUser = (event) => {
@@ -114,6 +118,7 @@ const Register = () => {
 
     return (
         <div className='mt-20 w-full md:flex items-center justify-between gap-5 max-w-7xl mx-auto px-5 lg:px-0'>
+            <PageTitle titles={'Register'}></PageTitle>
             <Lottie
 
                 className='w-full'

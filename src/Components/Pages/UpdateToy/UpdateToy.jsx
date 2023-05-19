@@ -1,10 +1,14 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import UseScroll from '../../UseScroll/UseScroll';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 
 const UpdateToy = () => {
 
     const { id } = useParams();
+    const { pathname } = useLocation();
+    UseScroll(pathname);
 
     const handleUpdateToy = (event) => {
         event.preventDefault();
@@ -14,7 +18,10 @@ const UpdateToy = () => {
         const detail = event.target.detail.value;
 
         const updateInfo = {
-            price, photo, quantity, detail
+            price,
+            photo,
+            quantity,
+            detail
         }
 
         fetch(`http://localhost:5000/toys/${id}`, {
@@ -30,7 +37,7 @@ const UpdateToy = () => {
                 if (data.modifiedCount) {
                     Swal.fire({
                         position: 'center',
-                        icon: 'warning',
+                        icon: 'info',
                         title: `Update success`,
                         showConfirmButton: false,
                         timer: 1500
@@ -41,7 +48,7 @@ const UpdateToy = () => {
     }
     return (
         <div className='my-32 w-full max-w-7xl mx-auto px-5 lg:px-0'>
-
+            <PageTitle titles={'Update'}></PageTitle>
             <div className='w-full max-w-4xl mx-auto bg-gray-50 rounded-md py-5'>
                 <h1 className='text-center font-roboto font-bold text-xl'>Update Toy</h1>
                 <form

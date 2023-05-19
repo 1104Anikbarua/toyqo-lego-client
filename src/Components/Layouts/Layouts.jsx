@@ -10,6 +10,7 @@ import AllToys from "../Pages/AllToy/AllToys";
 import ToyDetails from "../Pages/ToyDetails/ToyDetails";
 import UpdateToy from "../Pages/UpdateToy/UpdateToy";
 import RequireAuth from "../Shared/Authentication/RequireAuth/RequireAuth";
+import Blog from "../Pages/Blog/Blog";
 
 const router = createBrowserRouter([
     {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
                 path: 'update/:id',
                 element: <UpdateToy></UpdateToy>,
 
+            },
+            {
+                path: 'blog',
+                element: <Blog></Blog>
             },
             {
                 path: 'register',

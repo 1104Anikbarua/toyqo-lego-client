@@ -7,6 +7,8 @@ import Swal from 'sweetalert2';
 import { HiEye } from 'react-icons/hi';
 import { HiEyeSlash } from 'react-icons/hi2';
 import Google from '../Google/Google';
+import UseScroll from '../../../UseScroll/UseScroll';
+import PageTitle from '../../PageTitle/PageTitle';
 
 const Login = () => {
 
@@ -20,6 +22,8 @@ const Login = () => {
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
+
+    UseScroll(location?.pathname)
 
     const handleLoginUser = (event) => {
         event.preventDefault();
@@ -78,6 +82,7 @@ const Login = () => {
 
     return (
         <div className='mt-20 w-full md:flex items-center justify-between gap-5 max-w-7xl mx-auto px-5 lg:px-0'>
+            <PageTitle titles={'Login'}></PageTitle>
             <Lottie
 
                 className='w-full'

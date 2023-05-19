@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 import { LegoContext } from '../../AuthProvider/AuthProvider';
 import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
+import UseScroll from '../../UseScroll/UseScroll';
 
 const AllToys = () => {
 
@@ -12,6 +14,9 @@ const AllToys = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const searchRef = useRef();
+
+    const { pathname } = location;
+    UseScroll(pathname)
 
     useEffect(() => {
         setLoading(true)
@@ -53,11 +58,12 @@ const AllToys = () => {
 
     return (
         <>
+
+            <PageTitle titles={'AllToys'}></PageTitle>
             {
                 loading ?
                     <LoadingSpinner></LoadingSpinner> :
                     <div className="my-32 w-full max-w-7xl mx-auto">
-
                         <div className="w-full max-w-sm mx-auto flex flex-wrap items-center justify-center">
                             <input
                                 ref={searchRef}

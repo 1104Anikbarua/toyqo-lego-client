@@ -2,10 +2,16 @@ import React, { useContext, useState } from 'react';
 // import { HiOutlineCloudUpload } from 'react-icons/hi';
 import { LegoContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import { useLocation } from 'react-router-dom';
+import UseScroll from '../../UseScroll/UseScroll';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 
 const AddToy = () => {
     const [photo, setPhoto] = useState({})
     const { user } = useContext(LegoContext);
+
+    const { pathname } = useLocation();
+    UseScroll(pathname)
 
     const imageKey = import.meta.env.VITE_IMAGE_KEY;
     // console.log(imageKey)
@@ -20,7 +26,7 @@ const AddToy = () => {
         const sellerName = event.target.name.value;
         const sellerEmail = user?.email;
         const category = event.target.category.value;
-        const price = event.target.price.value;
+        const price = parseFloat(event.target.price.value);
         const rating = event.target.rating.value;
         const quantity = event.target.quantity.value;
         const detail = event.target.detail.value;
@@ -75,6 +81,7 @@ const AddToy = () => {
     const ratings = [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9]
     return (
         <div className='my-32 w-full max-w-7xl mx-auto px-5 lg:px-0'>
+            <PageTitle titles={'AddToys'}></PageTitle>
 
             <div className='w-full max-w-4xl mx-auto bg-gray-50 rounded-md py-5'>
                 <h1 className='text-center font-roboto font-bold text-xl'>Add Toy</h1>

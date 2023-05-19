@@ -2,23 +2,29 @@ import React, { useContext, useEffect, useState } from 'react';
 import { LegoContext } from '../../AuthProvider/AuthProvider';
 import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
 import { Rating } from '@smastrom/react-rating';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import UseScroll from '../../UseScroll/UseScroll';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 
 const MyToy = () => {
     const [loading, setLoading] = useState(false);
     const { user } = useContext(LegoContext);
     const [legos, setLegos] = useState([]);
+    const [order, setOrder] = useState(true);
+
+    const { pathname } = useLocation();
+    UseScroll(pathname)
 
     useEffect(() => {
         setLoading(true);
-        fetch(`http://localhost:5000/mylegos?email=${user?.email}`)
+        fetch(`http://localhost:5000/mylegos?email=${user?.email}&sort=${order ? 'asc' : 'desc'}`)
             .then(res => res.json())
             .then(data => {
                 setLegos(data);
                 setLoading(false);
             });
-    }, [user?.email]);
+    }, [user?.email, order]);
 
     const navigate = useNavigate();
 
@@ -62,12 +68,21 @@ const MyToy = () => {
         })
     }
 
+
     return (
         <>
+            <PageTitle titles={'MyToys'}></PageTitle>
             {loading ? (
                 <LoadingSpinner></LoadingSpinner>
             ) : (
                 <div className="my-32 w-full max-w-7xl mx-auto">
+                    <div>
+
+                        <button
+                            onClick={() => setOrder(!order)}
+                            className='w-40 h-12 bg-white border border-gray-500 rounded-md shadow-md mb-5 font-roboto font-medium text-lg'>{order ? 'Low To High' : 'High To Low'}</button>
+
+                    </div>
                     <div className="overflow-x-auto">
                         <table className="table w-full">
                             <thead>

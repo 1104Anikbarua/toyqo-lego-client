@@ -5,10 +5,12 @@ import Gallery from '../Gallery/Gallery';
 import Brands from '../Brands/Brands';
 import Counter from '../Counter/Counter';
 import Picks from '../Picks/Picks';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 
 const Common = () => {
     return (
         <div>
+            <PageTitle titles={'Home'}></PageTitle>
             <Banner></Banner>
             <Gallery></Gallery>
             <Category></Category>
