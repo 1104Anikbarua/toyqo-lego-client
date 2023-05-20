@@ -5,7 +5,8 @@ import { Rating } from '@smastrom/react-rating';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import UseScroll from '../../UseScroll/UseScroll';
-import PageTitle from '../../Shared/PageTitle/PageTitle';
+import PageTitle from '../../Shared/PageTitle/PageTitle'; import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const MyToy = () => {
     const [loading, setLoading] = useState(false);
@@ -67,6 +68,10 @@ const MyToy = () => {
             }
         })
     }
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
 
 
     return (
@@ -75,10 +80,15 @@ const MyToy = () => {
             {loading ? (
                 <LoadingSpinner></LoadingSpinner>
             ) : (
-                <div className="my-32 w-full max-w-7xl mx-auto">
+                <div className="my-32 w-full max-w-7xl mx-auto px-5 lg:px-0">
                     <div>
 
                         <button
+
+                            data-aos="zoom-in"
+                            data-aos-easing="ease-in-sine"
+                            data-aos-duration="1000"
+                            data-aos-delay="100"
                             onClick={() => setOrder(!order)}
                             className='w-40 h-12 bg-white border border-gray-500 rounded-md shadow-md mb-5 font-roboto font-medium text-lg'>{order ? 'Low To High' : 'High To Low'}</button>
 
@@ -86,7 +96,13 @@ const MyToy = () => {
                     <div className="overflow-x-auto">
                         <table className="table w-full">
                             <thead>
-                                <tr className="text-center">
+                                <tr
+                                    data-aos="zoom-in"
+                                    data-aos-easing="ease-in-sine"
+                                    data-aos-duration="1000"
+                                    data-aos-delay="500"
+
+                                    className="text-center">
                                     <th className="font-roboto font-semibold text-xl">No</th>
                                     <th className="font-roboto font-semibold text-xl">Image</th>
                                     <th className="font-roboto font-semibold text-xl">Toy Name</th>

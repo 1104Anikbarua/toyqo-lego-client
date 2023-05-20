@@ -11,6 +11,7 @@ import ToyDetails from "../Pages/ToyDetails/ToyDetails";
 import UpdateToy from "../Pages/UpdateToy/UpdateToy";
 import RequireAuth from "../Shared/Authentication/RequireAuth/RequireAuth";
 import Blog from "../Pages/Blog/Blog";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 
 const router = createBrowserRouter([
     {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
             {
                 path: 'login',
                 element: <Login></Login>,
+            },
+            {
+                path: 'about',
+                element: <AboutUs></AboutUs>
             }
         ]
     }

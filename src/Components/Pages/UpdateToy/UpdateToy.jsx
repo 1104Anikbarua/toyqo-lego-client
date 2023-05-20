@@ -18,14 +18,14 @@ const UpdateToy = () => {
         const detail = event.target.detail.value;
 
         const updateInfo = {
+            // photo,
             price,
-            photo,
             quantity,
             detail
         }
 
         fetch(`http://localhost:5000/toys/${id}`, {
-            method: "PATCH",
+            method: "PUT",
             headers: {
                 'content-type': 'application/json'
             },

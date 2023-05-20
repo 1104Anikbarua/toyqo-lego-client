@@ -5,6 +5,9 @@ import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
 import UseScroll from '../../UseScroll/UseScroll';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const AllToys = () => {
 
     const [legos, setLegos] = useState([])
@@ -17,6 +20,10 @@ const AllToys = () => {
 
     const { pathname } = location;
     UseScroll(pathname)
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
 
     useEffect(() => {
         setLoading(true)
@@ -63,9 +70,14 @@ const AllToys = () => {
             {
                 loading ?
                     <LoadingSpinner></LoadingSpinner> :
-                    <div className="my-32 w-full max-w-7xl mx-auto">
+                    <div className="my-32 w-full max-w-7xl mx-auto px-5 lg:px-0">
                         <div className="w-full max-w-sm mx-auto flex flex-wrap items-center justify-center">
                             <input
+
+                                data-aos="zoom-in"
+                                data-aos-easing="ease-in-sine"
+                                data-aos-duration="500"
+                                data-aos-delay="100"
                                 ref={searchRef}
                                 className="bg-blue-100 outline-none rounded-s-md pl-1 py-2 placeholder:pl-2 mb-5 flex-grow"
                                 type="text"
@@ -74,6 +86,11 @@ const AllToys = () => {
                                 placeholder="Search By Toy Name"
                             />
                             <button
+
+                                data-aos="zoom-in"
+                                data-aos-easing="ease-in-sine"
+                                data-aos-duration="500"
+                                data-aos-delay="100"
                                 onClick={handleSearch}
                                 className="bg-white rounded-e-md h-10 font-bold cursor-pointer shadow-md border border-gray-500 px-4 ml-0 mb-5">
                                 Search
@@ -84,7 +101,12 @@ const AllToys = () => {
 
                             <table className="table w-full">
                                 <thead>
-                                    <tr className="text-center">
+                                    <tr
+                                        data-aos="zoom-in"
+                                        data-aos-easing="ease-in-sine"
+                                        data-aos-duration="1000"
+                                        data-aos-delay="500"
+                                        className="text-center">
                                         <th className="font-roboto font-semibold text-xl">No</th>
                                         <th className="font-roboto font-semibold text-xl">Seller Name</th>
                                         <th className="font-roboto font-semibold text-xl">Toy Name</th>
@@ -96,8 +118,12 @@ const AllToys = () => {
                                 </thead>
                                 <tbody>
                                     {legos.map((lego, index) => (
-                                        <tr className="text-center" key={lego._id}>
-                                            <td className="font-bold font-roboto">{index + 1}</td>
+                                        <tr
+
+                                            className="text-center" key={lego._id}>
+                                            <td
+
+                                                className="font-bold font-roboto">{index + 1}</td>
                                             <td className="font-bold font-roboto">{lego?.sellerName}</td>
                                             <td className="font-bold font-roboto">{lego?.toyName}</td>
                                             <td className="font-bold font-roboto">{lego?.category}</td>
