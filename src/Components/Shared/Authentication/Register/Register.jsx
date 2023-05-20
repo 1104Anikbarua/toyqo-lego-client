@@ -95,8 +95,10 @@ const Register = () => {
                             const errorMessage = err.message;
                             setError(errorMessage)
                         })
+                    event.target.reset();
                 }
             })
+
 
     }
 
@@ -167,7 +169,7 @@ const Register = () => {
                             type="file"
                             name="photo"
                             id="file"
-                            required />
+                        />
                     </div>
                     <div className='flex flex-col w-full max-w-sm mx-auto'>
                         <label

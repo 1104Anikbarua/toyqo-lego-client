@@ -35,6 +35,10 @@ const Login = () => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
+        if (email === '' || password === '') {
+            setError('Email and password cannot be empty')
+            return;
+        }
         // console.log(email, password)
         verifyLogin(email, password)
             .then((res) => {
@@ -84,6 +88,7 @@ const Login = () => {
             .catch((e) => {
                 const message = e.message;
             })
+
     }
 
     return (
