@@ -46,7 +46,7 @@ const Header = () => {
                     <img src={logo} alt="website nav logo" />
                 </Link>
                 <ul
-                    className={`flex items-center flex-col absolute duration-700 w-full bg-white bg-opacity-5 shadow-sm justify-center
+                    className={`flex items-center flex-col absolute duration-700 w-full bg-white lg:bg-opacity-0 shadow-sm justify-center
                 md:flex-row md:justify-end md:static md:shadow-none ${show ? 'top-[82px]' : '-top-96'}`}>
 
                     <li className="md:mr-5">
@@ -119,8 +119,8 @@ const Header = () => {
             </div>
 
             <div className='hidden md:flex lg:flex items-center justify-center'>
-                <Link className='mr-5'>
-                    <HiOutlineSearch className='font-normal text-2xl'></HiOutlineSearch>
+                <Link className='mr-5 bg-blue-950 rounded-full flex items-center justify-center w-10 h-10'>
+                    <HiOutlineSearch className='font-normal text-2xl text-white'></HiOutlineSearch>
                 </Link>
                 <Link className='mr-5'>
                     <GiSelfLove className='font-normal text-2xl'></GiSelfLove>

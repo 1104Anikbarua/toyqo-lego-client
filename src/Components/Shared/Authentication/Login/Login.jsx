@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import login from '../Register/signup.json'
 import Lottie from 'lottie-react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -9,6 +9,8 @@ import { HiEyeSlash } from 'react-icons/hi2';
 import Google from '../Google/Google';
 import UseScroll from '../../../UseScroll/UseScroll';
 import PageTitle from '../../PageTitle/PageTitle';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Login = () => {
 
@@ -24,6 +26,10 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/';
 
     UseScroll(location?.pathname)
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
 
     const handleLoginUser = (event) => {
         event.preventDefault();

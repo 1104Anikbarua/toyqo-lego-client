@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Lottie from 'lottie-react';
 import login from '../Register/signup.json'
 import { HiOutlineCloudUpload } from 'react-icons/hi'
@@ -8,8 +8,11 @@ import Swal from 'sweetalert2';
 import Google from '../Google/Google';
 import UseScroll from '../../../UseScroll/UseScroll';
 import PageTitle from '../../PageTitle/PageTitle';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Register = () => {
+
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('');
@@ -34,7 +37,10 @@ const Register = () => {
     const from = location.state || '/';
 
     UseScroll(location?.pathname)
-
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
 
     const handleRegisterUser = (event) => {
         event.preventDefault();
