@@ -66,7 +66,7 @@ const AddToy = () => {
                                 Swal.fire({
                                     position: 'center',
                                     icon: 'success',
-                                    title: `Lego Detail Post Success`,
+                                    title: `Lego Added Successfully`,
                                     showConfirmButton: false,
                                     timer: 1500
                                 })
