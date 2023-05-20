@@ -12,6 +12,9 @@ import UpdateToy from "../Pages/UpdateToy/UpdateToy";
 import RequireAuth from "../Shared/Authentication/RequireAuth/RequireAuth";
 import Blog from "../Pages/Blog/Blog";
 import AboutUs from "../Pages/AboutUs/AboutUs";
+import TermsAndCondition from "../Pages/TermsAndCondition/TermsAndCondition";
+import PaymentMethod from "../Pages/PaymentMethod/PaymentMethod";
+import UpdateProfile from "../Shared/Authentication/UpdateProfile/UpdateProfile";
 
 const router = createBrowserRouter([
     {
@@ -68,9 +71,22 @@ const router = createBrowserRouter([
                 element: <Login></Login>,
             },
             {
+                path: 'profile',
+                element: <UpdateProfile></UpdateProfile>
+            },
+            {
                 path: 'about',
                 element: <AboutUs></AboutUs>
+            },
+            {
+                path: 'terms',
+                element: <TermsAndCondition></TermsAndCondition>
+            },
+            {
+                path: 'payment',
+                element: <PaymentMethod></PaymentMethod>
             }
+
         ]
     }
 ])

@@ -2,7 +2,13 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
+import { useLocation } from 'react-router-dom';
+import UseScroll from '../../UseScroll/UseScroll';
 const AboutUs = () => {
+
+    const location = useLocation();
+    const { pathname } = location;
+    UseScroll(pathname);
     useEffect(() => {
         AOS.init();
         AOS.refresh();

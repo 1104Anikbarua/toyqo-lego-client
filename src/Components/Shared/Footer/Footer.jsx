@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import facebook from '../../../assets/icon/facebook.png'
 import google from '../../../assets/icon/googlee.png'
 import twitter from '../../../assets/icon/twitter.png'
@@ -10,10 +10,15 @@ import phone from '../../../assets/icon/smartphone.png'
 import message from '../../../assets/icon/text.png'
 import location from '../../../assets/icon/placeholder.png'
 import logo from '../../../assets/logo/logo.png';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Footer = () => {
     const today = new Date();
     const year = today.getFullYear();
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
     return (
         <footer className="bg-white shadow-inner py-8 px-5 lg:px-20 my-32">
             <div className="max-w-screen-xl mx-auto">
@@ -118,7 +123,7 @@ const Footer = () => {
                                 data-aos-duration="1000"
                                 data-aos-delay="900"
                                 className='font-roboto font-medium text-base'>
-                                <Link>Term&apos;s & Condition&apos;s</Link>
+                                <Link to={'terms'}>Term&apos;s & Condition&apos;s</Link>
                             </li>
                             <li
                                 data-aos="fade-down"
@@ -126,7 +131,7 @@ const Footer = () => {
                                 data-aos-duration="1000"
                                 data-aos-delay="700"
                                 className='font-roboto font-medium text-base'>
-                                <Link>Payment Method</Link>
+                                <Link to={'payment'}>Payment Method</Link>
                             </li>
                             <li
                                 data-aos="fade-down"

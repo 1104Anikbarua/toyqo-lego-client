@@ -147,7 +147,8 @@ const Register = () => {
                             type="text"
                             name="name"
                             id="name"
-                            placeholder='Your Name' />
+                            placeholder='Your Name'
+                            required />
                     </div>
                     <div className='flex flex-col w-full max-w-sm mx-auto'>
                         <label
@@ -165,7 +166,8 @@ const Register = () => {
                             hidden outline-none rounded-md pl-1 py-1 placeholder:pl-2'
                             type="file"
                             name="photo"
-                            id="file" />
+                            id="file"
+                            required />
                     </div>
                     <div className='flex flex-col w-full max-w-sm mx-auto'>
                         <label
@@ -183,7 +185,8 @@ const Register = () => {
                             type="email"
                             name="email"
                             id="email"
-                            placeholder='Email' />
+                            placeholder='Email'
+                            required />
                         {
                             emailError && <p className='font-roboto text-red-500 mt-2 w-full max-w-sm mx-auto'>{emailError}</p>
                         }
@@ -203,7 +206,8 @@ const Register = () => {
                             type="password"
                             name="password"
                             id="password"
-                            placeholder='Password' />
+                            placeholder='Password'
+                            required />
                         {
                             passwordError && <p className='font-roboto text-red-500 mt-2 w-full max-w-sm mx-auto'>{passwordError}</p>
                         }
