@@ -27,7 +27,7 @@ const Register = () => {
     // console.log(imageKey)
 
     const handlePhotoChange = (event) => {
-        console.log(event.target.files[0])
+        // console.log(event.target.files[0])
         setPhoto(event.target.files[0])
     }
 
@@ -63,7 +63,7 @@ const Register = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.status === 200) {
                     signUpUser(email, password)
                         .then((result) => {
