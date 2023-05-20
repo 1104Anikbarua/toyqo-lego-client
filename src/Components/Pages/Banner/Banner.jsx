@@ -10,7 +10,7 @@ const Banner = () => {
     }, []);
 
     return (
-        <div className='relative flex flex-col items-center justify-center mt-20 h-screen'>
+        <div className='relative flex flex-col items-center justify-center mt-20 h-screen w-full'>
             <div className='absolute inset-0 w-full bg-cover bg-center filter contrast-50'
                 style={{ backgroundImage: `url(${banner})` }}>
             </div>

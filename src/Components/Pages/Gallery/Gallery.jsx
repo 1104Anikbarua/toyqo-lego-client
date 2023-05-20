@@ -16,7 +16,7 @@ const Gallery = () => {
 
                         className="w-1/2 p-1 md:p-2">
                         <img
-                            data-aos="fade-right"
+                            data-aos="fade-down"
                             data-aos-easing="ease-in-sine"
                             data-aos-duration="1000"
                             data-aos-delay="100"
@@ -39,7 +39,7 @@ const Gallery = () => {
                     <div className="w-full p-1 md:p-2">
                         <img
 
-                            data-aos="fade-right"
+                            data-aos="fade-up"
                             data-aos-easing="ease-in-sine"
                             data-aos-duration="1000"
                             data-aos-delay="2000"
@@ -53,7 +53,7 @@ const Gallery = () => {
                 <div className="flex w-1/2 flex-wrap">
                     <div className="w-full p-1 md:p-2">
                         <img
-                            data-aos="fade-left"
+                            data-aos="fade-down"
                             data-aos-easing="ease-in-sine"
                             data-aos-duration="1000"
                             data-aos-delay="1400"
@@ -77,7 +77,7 @@ const Gallery = () => {
                     <div className="w-1/2 p-1 md:p-2">
                         <img
                             // img6
-                            data-aos="fade-left"
+                            data-aos="fade-up"
                             data-aos-easing="ease-in-sine"
                             data-aos-duration="1000"
                             data-aos-delay="2700"
