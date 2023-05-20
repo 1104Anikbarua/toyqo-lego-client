@@ -13,7 +13,7 @@ const UpdateToy = () => {
     const handleUpdateToy = (event) => {
         event.preventDefault();
         const price = event.target.price.value;
-        const photo = event.target.photo.value;
+        // const photo = event.target.photo.value;
         const quantity = event.target.quantity.value;
         const detail = event.target.detail.value;
 
@@ -24,8 +24,8 @@ const UpdateToy = () => {
             detail
         }
 
-        fetch(`http://localhost:5000/toys/${id}`, {
-            method: "PUT",
+        fetch(`https://batch-7-assignment-11-server.vercel.app/toys/${id}`, {
+            method: "PATCH",
             headers: {
                 'content-type': 'application/json'
             },

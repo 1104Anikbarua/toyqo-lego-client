@@ -8,14 +8,15 @@ const Picks = () => {
     const [weekPicks, setWeekPicks] = useState([]);
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        const fetchData = async () => {
-            setLoading(true)
-            const response = await fetch('http://localhost:5000/picks')
-            const data = await response.json();
-            setWeekPicks(data)
-            setLoading(false)
-        }
-        fetchData();
+
+        setLoading(true)
+        fetch('https://batch-7-assignment-11-server.vercel.app/picks')
+            .then(response => response.json())
+            .then(data => {
+                setWeekPicks(data)
+                setLoading(false)
+            })
+
     }, [])
 
     // if (loading) {

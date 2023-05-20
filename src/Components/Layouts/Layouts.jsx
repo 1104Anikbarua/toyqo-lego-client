@@ -50,7 +50,7 @@ const router = createBrowserRouter([
                 </RequireAuth>,
                 loader: ({ params }) => {
                     // console.log(params)
-                    return fetch(`http://localhost:5000/legos/${params?.id}`)
+                    return fetch(`https://batch-7-assignment-11-server.vercel.app/legos/${params?.id}`)
                 }
             },
             {

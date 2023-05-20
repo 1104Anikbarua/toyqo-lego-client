@@ -19,7 +19,7 @@ const MyToy = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`http://localhost:5000/mylegos?email=${user?.email}&sort=${order ? 'asc' : 'desc'}`)
+        fetch(`https://batch-7-assignment-11-server.vercel.app/mylegos?email=${user?.email}&sort=${order ? 'asc' : 'desc'}`)
             .then(res => res.json())
             .then(data => {
                 setLegos(data);
@@ -47,7 +47,7 @@ const MyToy = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/toys/${id}`, {
+                fetch(`https://batch-7-assignment-11-server.vercel.app/toys/${id}`, {
                     method: "DELETE",
                 })
                     .then((res => res.json()))

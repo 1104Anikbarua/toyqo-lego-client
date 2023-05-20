@@ -5,13 +5,13 @@ const UseLoader = (category) => {
     // console.log(category)
     const [legos, setLegos] = useState([])
     useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch(`http://localhost:5000/toys?category=${category}`)
-            const data = await response.json();
-            // console.log(data)
-            setLegos(data)
-        }
-        fetchData();
+
+        fetch(`https://batch-7-assignment-11-server.vercel.app/toys?category=${category}`)
+            .then(response => response.json())
+            .then(data => {
+                // console.log(data)
+                setLegos(data)
+            })
     }, [category])
     return [legos]
 };
