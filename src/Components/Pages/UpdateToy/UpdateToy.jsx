@@ -12,13 +12,13 @@ const UpdateToy = () => {
 
     const handleUpdateToy = (event) => {
         event.preventDefault();
-        // const photo = event.target.photo.value;
-        const price = event.target.price.value;
+        const photo = event.target.photo.value;
+        const price = parseFloat(event.target.price.value);
         const quantity = event.target.quantity.value;
         const detail = event.target.detail.value;
 
         const updateInfo = {
-            // photo,
+            photo,
             price,
             quantity,
             detail
@@ -47,6 +47,7 @@ const UpdateToy = () => {
                 }
 
             })
+        event.target.reset();
     }
     return (
         <div className='my-32 w-full max-w-7xl mx-auto px-5 lg:px-0'>

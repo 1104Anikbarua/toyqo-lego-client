@@ -16,7 +16,7 @@ const AddToy = () => {
     const imageKey = import.meta.env.VITE_IMAGE_KEY;
     // console.log(imageKey)
     const handlePhotoChange = (event) => {
-        console.log(event.target.files[0])
+        // console.log(event.target.files[0])
         setPhoto(event.target.files[0])
     }
 
@@ -74,6 +74,7 @@ const AddToy = () => {
                         })
                 }
             })
+        event.target.reset();
 
     }
 
@@ -100,18 +101,15 @@ const AddToy = () => {
                                 type="text"
                                 name="toyname"
                                 id="toyname"
-                                placeholder='Toy Name' />
+                                placeholder='Toy Name'
+                                required />
                         </div>
                         <div className='flex flex-col w-full max-w-sm mx-auto'>
                             <label
                                 htmlFor="photo"
                                 className='
                             text-lg font-roboto font-semibold mb-2'>Photo Url</label>
-                            {/* <label htmlFor="file"
-                                className='w-full max-w-sm bg-blue-100 py-1 rounded-md flex items-center'>
-                                <HiOutlineCloudUpload className='text-lg font-semibold mr-2 font-roboto' />
-                                Upload Image
-                            </label> */}
+
                             <input
                                 onChange={handlePhotoChange}
                                 className='bg-blue-100
@@ -131,7 +129,9 @@ const AddToy = () => {
                                 type="text"
                                 name="name"
                                 id="name"
-                                placeholder='Seller Name' />
+                                placeholder='Seller Name'
+                                readOnly
+                                disabled />
                         </div>
                         <div className='flex flex-col w-full max-w-sm mx-auto'>
                             <label
@@ -147,7 +147,9 @@ const AddToy = () => {
                                 type="email"
                                 name="email"
                                 id="email"
-                                placeholder='Email' />
+                                placeholder='Email'
+                                readOnly
+                                disabled />
 
                         </div>
 
@@ -187,7 +189,8 @@ const AddToy = () => {
                                 type="text"
                                 name="price"
                                 id="price"
-                                placeholder='Price' />
+                                placeholder='Price'
+                                required />
 
                         </div>
 
@@ -229,7 +232,8 @@ const AddToy = () => {
                                 type="text"
                                 name="quantity"
                                 id="quantity"
-                                placeholder='Quantity' />
+                                placeholder='Quantity'
+                                required />
 
                         </div>
 
@@ -244,6 +248,7 @@ const AddToy = () => {
                                 cols={50}
                                 placeholder='Detail'
                                 className='bg-blue-100 w-full outline-none rounded-md pl-1 py-1 placeholder:pl-2'
+                                required
                             >
 
                             </textarea>
