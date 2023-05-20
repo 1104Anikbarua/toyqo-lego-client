@@ -9,6 +9,13 @@ const Gallery = () => {
     }, []);
     return (
         <div className="w-full max-w-7xl my-32 mx-auto px-5 lg:px-0">
+            <h1
+                data-aos="fade-down"
+                data-aos-easing="ease-in-sine"
+                data-aos-duration="1000"
+                data-aos-delay="1800"
+
+                className='font-roboto font-bold text-7xl text-center mb-5'>Gallery</h1>
             <div className="-m-1 flex flex-wrap md:-m-2">
                 <div className="flex w-1/2 flex-wrap">
                     <div
