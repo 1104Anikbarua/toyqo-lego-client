@@ -10,7 +10,7 @@ const Picks = () => {
     useEffect(() => {
 
         setLoading(true)
-        fetch('https://batch-7-assignment-11-server.vercel.app/picks')
+        fetch('https://batch-7-assignment-11-server.vercel.app/pick')
             .then(response => response.json())
             .then(data => {
                 setWeekPicks(data)

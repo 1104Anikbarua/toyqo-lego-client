@@ -27,6 +27,7 @@ const AllToys = () => {
 
     useEffect(() => {
         setLoading(true)
+        // https://batch-7-assignment-11-server.vercel.app
         fetch(`https://batch-7-assignment-11-server.vercel.app/legos?toyname=${search}`)
             .then(res => res.json())
             .then(data => {

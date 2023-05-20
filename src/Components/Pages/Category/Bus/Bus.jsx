@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import CategoryCard from '../CategoryCard/CategoryCard';
 import { LegoContext } from '../../../AuthProvider/AuthProvider';
 import UseLoader from '../../../Hook/UseLoader';
@@ -6,10 +6,30 @@ import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
 const Bus = () => {
+    const [totalLegos, setTotalLegos] = useState(0)
+    const [itemsPerPage, setItemsPerPage] = useState(6)
+    const [currentPage, setCurrentPage] = useState(0)
 
     const { user } = useContext(LegoContext)
-    const [legos] = UseLoader('bus');
+    const [legos] = UseLoader('bus', currentPage, itemsPerPage);
     const navigate = useNavigate();
+
+    const totalPages = Math.ceil(totalLegos / itemsPerPage)
+
+    const pages = [...Array(totalPages).keys()];
+
+    const options = [6, 12, 18]
+    const handleLoadLego = (event) => {
+        setItemsPerPage(event.target.value)
+        setCurrentPage(0)
+    }
+
+
+    useEffect(() => {
+        fetch('https://batch-7-assignment-11-server.vercel.app/documents')
+            .then(res => res.json())
+            .then(data => setTotalLegos(data?.count))
+    }, [])
 
     const handleClick = () => {
         if (!user?.email) {
@@ -42,6 +62,32 @@ const Bus = () => {
                         handleToyDetail={handleToyDetail}
                     ></CategoryCard>)
                 }
+            </div>
+            <div
+                className='text-center mt-2'>
+                {
+                    pages?.map((page) => <button
+                        key={page}
+                        onClick={() => setCurrentPage(page)}
+
+
+
+                        className={`w-10 rounded-md h-10 font-bold text-sm shadow-md bg-white border border-gray-100 ${currentPage === page ? 'text-blue-600' : ''}`}
+                    >{page}</button>)
+                }
+                <select
+                    name="items"
+                    id=""
+                    onChange={handleLoadLego}
+
+                    className='w-10 rounded-md h-10 font-bold text-sm shadow-md bg-white border border-gray-100 outline-none font-roboto'>
+                    {
+                        options.map((option) => <option
+                            key={option}
+                            value={option}
+                        >{option}</option>)
+                    }
+                </select>
             </div>
         </div>
     );
