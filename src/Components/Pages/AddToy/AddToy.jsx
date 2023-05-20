@@ -46,7 +46,7 @@ const AddToy = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.status === 200) {
                     const toyPhoto = data?.data?.url;
                     const toyInfo = {
