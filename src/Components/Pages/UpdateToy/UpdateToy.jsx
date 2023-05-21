@@ -72,7 +72,8 @@ const UpdateToy = () => {
                                 type="text"
                                 name="price"
                                 id="price"
-                                placeholder='Price' />
+                                placeholder='Price'
+                                required />
 
                         </div>
                         <div className='flex flex-col w-full max-w-sm mx-auto'>
@@ -87,7 +88,8 @@ const UpdateToy = () => {
                                 type="url"
                                 name="photo"
                                 id="photo"
-                                placeholder='Photo' />
+                                placeholder='Photo'
+                                required />
 
                         </div>
 
@@ -106,7 +108,8 @@ const UpdateToy = () => {
                                 type="text"
                                 name="quantity"
                                 id="quantity"
-                                placeholder='Quantity' />
+                                placeholder='Quantity'
+                                required />
 
                         </div>
 
@@ -121,6 +124,7 @@ const UpdateToy = () => {
                                 cols={50}
                                 placeholder='Detail'
                                 className='bg-blue-100 w-full outline-none rounded-md pl-1 py-1 placeholder:pl-2'
+                                required
                             >
 
                             </textarea>
