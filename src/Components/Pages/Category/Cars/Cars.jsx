@@ -13,8 +13,9 @@ const Cars = () => {
     const { user } = useContext(LegoContext)
     const [legos] = UseLoader('car', currentPage, itemsPerPage);
     const navigate = useNavigate();
+    const category = 'car'
 
-    // console.log(legos)
+    console.log(legos)
 
     const totalPages = Math.ceil(totalLegos / itemsPerPage)
     // console.log(totalPages)
@@ -28,11 +29,14 @@ const Cars = () => {
         setItemsPerPage(event.target.value)
         setCurrentPage(0)
     }
-
+    // https://batch-7-assignment-11-server.vercel.app
     useEffect(() => {
-        fetch('https://batch-7-assignment-11-server.vercel.app/documents')
+        fetch(`https://batch-7-assignment-11-server.vercel.app/documents?category=${category}`)
             .then(res => res.json())
-            .then(data => setTotalLegos(data?.count))
+            .then(data => {
+                // console.log(data)
+                setTotalLegos(data?.result)
+            })
     }, [])
 
     const handleClick = () => {

@@ -32,11 +32,9 @@ const AddToy = () => {
         const detail = event.target.detail.value;
         // console.log(sellerName, sellerEmail, toyName, category, price, rating, quantity, detail)
 
-        const toyInfo = {
-            toyName, sellerName, sellerEmail, category, price, rating, quantity, detail
-        }
-
-
+        // const toyInfo = {
+        //     toyName, sellerName, sellerEmail, category, price, rating, quantity, detail
+        // }
 
         const formData = new FormData()
         formData.append('image', photo)

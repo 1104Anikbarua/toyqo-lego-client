@@ -12,6 +12,8 @@ const Header = () => {
 
     const [show, setShow] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
+    const [click, setClick] = useState(false);
+    // const [inputWidth, setInputWidth] = useState(0)
     const { user, logOutUser } = useContext(LegoContext);
     // console.log(user)
 
@@ -36,6 +38,15 @@ const Header = () => {
                 })
             })
     }
+    // const handleClick = () => {
+    //     setClick(!click);
+    //     setInputWidth(click ? 0 : 240);
+    // }
+
+    // const inputStyle = {
+    //     width: `${inputWidth}px`,
+    //     transition: 'width 0.5s ease-in-out',
+    // };
 
     return (
         <div className='flex items-center justify-between
@@ -48,7 +59,6 @@ const Header = () => {
                 <ul
                     className={`flex items-center flex-col absolute duration-700 w-full bg-white lg:bg-opacity-0 shadow-sm justify-center
                 md:flex-row md:justify-end md:static md:shadow-none ${show ? 'top-[82px]' : '-top-96'}`}>
-
                     <li className="md:mr-5">
 
                         <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'/'}>Home</NavLink>
@@ -76,11 +86,9 @@ const Header = () => {
                             <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'addtoy'}>Add Toy</NavLink>
                         </li>
                     }
-
                     <li className="md:mr-5">
                         <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'blog'}>Blog</NavLink>
                     </li>
-
                     {
                         user
                         &&
@@ -93,7 +101,6 @@ const Header = () => {
                             </NavLink>
                         </li>
                     }
-
                     {
                         user
                             ?
@@ -102,14 +109,10 @@ const Header = () => {
                                     onClick={() => handleLogOutUser()}
                                     className={({ isActive }) => isActive ? 'true' : 'false'} to={'login'}>Logout</NavLink>
                             </li>
-
-
-
                             : <li className="md:mr-5">
                                 <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'login'}>Login</NavLink>
                             </li>
                     }
-
                     {!user &&
                         <li className="md:mr-5">
                             <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'register'}>Register</NavLink>
@@ -119,13 +122,36 @@ const Header = () => {
             </div>
 
             <div className='hidden md:flex lg:flex items-center justify-center'>
-                <Link className='mr-5 bg-blue-950 rounded-full flex items-center justify-center w-10 h-10'>
+
+                <div className={`absolute duration-1000 ${click ? 'right-[174px] -z-50' : 'right-44'}`}>
+                    <input
+                        // style={inputStyle}
+                        className={`bg-blue-100 outline-none rounded-full pl-2
+                        placeholder:pl-2
+                        ${click ? 'w-60 duration-1000 h-10' : 'w-0 h-10 duration-1000'}
+                        `}
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder='Search'
+                        required />
+
+                    <HiOutlineSearch
+                        onClick={() => setClick(!click)}
+                        className='font-normal text-2xl text-black absolute top-2 right-2 cursor-pointer'></HiOutlineSearch>
+
+                </div>
+                <Link
+                    onClick={() => setClick(!click)}
+                    // onClick={handleClick}
+
+                    className={`mr-5 z-50 bg-blue-950 rounded-full flex items-center justify-center w-10 h-10 ${click ? 'hidden' : ''}`}>
                     <HiOutlineSearch className='font-normal text-2xl text-white'></HiOutlineSearch>
                 </Link>
-                <Link className='mr-5'>
+                <Link className='mr-5 z-50'>
                     <GiSelfLove className='font-normal text-2xl'></GiSelfLove>
                 </Link>
-                <Link>
+                <Link className='z-50'>
                     <CgShoppingCart className='font-normal text-2xl'></CgShoppingCart>
                 </Link>
             </div>

@@ -7,6 +7,7 @@ import Counter from '../Counter/Counter';
 import Picks from '../Picks/Picks';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
 import Arrivals from '../Arrivals/Arrivals';
+import SavedBlogs from '../SavedBlogs/SavedBlogs';
 
 const Common = () => {
     return (
@@ -19,6 +20,7 @@ const Common = () => {
             <Counter></Counter>
             <Picks></Picks>
             <Arrivals></Arrivals>
+            <SavedBlogs></SavedBlogs>
         </div>
     );
 };

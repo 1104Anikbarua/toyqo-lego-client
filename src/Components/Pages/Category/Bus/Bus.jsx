@@ -9,6 +9,7 @@ const Bus = () => {
     const [totalLegos, setTotalLegos] = useState(0)
     const [itemsPerPage, setItemsPerPage] = useState(6)
     const [currentPage, setCurrentPage] = useState(0)
+    const category = 'bus';
 
     const { user } = useContext(LegoContext)
     const [legos] = UseLoader('bus', currentPage, itemsPerPage);
@@ -26,9 +27,12 @@ const Bus = () => {
 
 
     useEffect(() => {
-        fetch('https://batch-7-assignment-11-server.vercel.app/documents')
+        fetch(`https://batch-7-assignment-11-server.vercel.app/documents?category=${category}`)
             .then(res => res.json())
-            .then(data => setTotalLegos(data?.count))
+            .then(data => {
+                // console.log(data)
+                setTotalLegos(data?.result)
+            })
     }, [])
 
     const handleClick = () => {

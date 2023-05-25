@@ -12,6 +12,7 @@ const Truck = () => {
     const { user } = useContext(LegoContext)
     const [legos] = UseLoader('truck', currentPage, itemsPerPage);
     const navigate = useNavigate();
+    const category = 'truck';
 
     const options = [6, 12, 18]
     const handleLoadLego = (event) => {
@@ -20,9 +21,12 @@ const Truck = () => {
     }
 
     useEffect(() => {
-        fetch('https://batch-7-assignment-11-server.vercel.app/documents')
+        fetch(`https://batch-7-assignment-11-server.vercel.app/documents?category=${category}`)
             .then(res => res.json())
-            .then(data => setTotalLegos(data?.count))
+            .then(data => {
+                // console.log(data)
+                setTotalLegos(data?.result)
+            })
     }, [])
 
     const totalPages = Math.ceil(totalLegos / itemsPerPage)
