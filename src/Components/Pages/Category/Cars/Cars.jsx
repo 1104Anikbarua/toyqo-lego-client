@@ -3,7 +3,7 @@ import UseLoader from '../../../Hook/UseLoader';
 import CategoryCard from '../CategoryCard/CategoryCard';
 import { LegoContext } from '../../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Cars = () => {
 
@@ -14,8 +14,9 @@ const Cars = () => {
     const [legos] = UseLoader('car', currentPage, itemsPerPage);
     const navigate = useNavigate();
     const category = 'car'
-
-    console.log(legos)
+    const location = useLocation();
+    // console.log(legos)
+    console.log(location)
 
     const totalPages = Math.ceil(totalLegos / itemsPerPage)
     // console.log(totalPages)
@@ -39,7 +40,8 @@ const Cars = () => {
             })
     }, [])
 
-    const handleClick = () => {
+    // todo: check navigate and redirect
+    const handleClick = (id) => {
         if (!user?.email) {
             Swal.fire({
                 position: 'center',
@@ -48,7 +50,7 @@ const Cars = () => {
                 showConfirmButton: false,
                 timer: 1500
             })
-            navigate('/login')
+            navigate('/login', { state: { from: { pathname: `/toy/${id}` } } })
         }
     }
     const handleToyDetail = (id) => {

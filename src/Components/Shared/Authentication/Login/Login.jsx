@@ -22,8 +22,10 @@ const Login = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
+    // console.log(location)
 
-    const from = location.state?.from?.pathname || '/';
+    const from = location?.state?.from?.pathname || '/';
+    // console.log(from)
 
     UseScroll(location?.pathname)
     useEffect(() => {
@@ -45,7 +47,7 @@ const Login = () => {
                 // console.log(res)
                 if (res.status === 200) {
                     logInUser(email, password)
-                        .then((result) => {
+                        .then(() => {
                             setError('')
                             Swal.fire({
                                 position: 'center',

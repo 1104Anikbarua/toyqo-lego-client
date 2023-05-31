@@ -14,10 +14,10 @@ const CategoryCard = ({ lego, handleClick, handleToyDetail }) => {
             handleToyDetail(_id)
         }
         else {
-            handleClick()
+            handleClick(_id)
         }
     }
-
+    // alternative 
     // const handleClickEvent = user?.email ? handleToyDetail : handleClick;
     return (
         <div className='bg-yellow-100 rounded-md w-full max-w-sm h-full p-5'>

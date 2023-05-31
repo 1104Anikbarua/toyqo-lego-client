@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { LegoContext } from '../../AuthProvider/AuthProvider';
 import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
@@ -43,10 +43,10 @@ const AllToys = () => {
         navigate(`/toy/${id}`);
     };
 
-    const handleUser = () => {
+    const handleUser = (id) => {
         console.log('location', location);
         if (!user) {
-            navigate('/login', { state: { from: location }, replace: true });
+            navigate('/login', { state: { from: { pathname: `/toy/${id}` } }, replace: true });
         }
     };
 
@@ -54,7 +54,7 @@ const AllToys = () => {
         if (user) {
             handleViewDetail(id);
         } else {
-            handleUser();
+            handleUser(id);
         }
     };
 
@@ -74,7 +74,6 @@ const AllToys = () => {
                     <div className="my-32 w-full max-w-7xl mx-auto px-5 lg:px-0">
                         <div className="w-full max-w-sm mx-auto flex flex-wrap items-center justify-center">
                             <input
-
                                 data-aos="zoom-in"
                                 data-aos-easing="ease-in-sine"
                                 data-aos-duration="500"
@@ -97,9 +96,7 @@ const AllToys = () => {
                                 Search
                             </button>
                         </div>
-
                         <div className="overflow-x-auto">
-
                             <table className="table w-full">
                                 <thead>
                                     <tr
@@ -120,10 +117,8 @@ const AllToys = () => {
                                 <tbody>
                                     {legos.map((lego, index) => (
                                         <tr
-
                                             className="text-center" key={lego._id}>
                                             <td
-
                                                 className="font-bold font-roboto">{index + 1}</td>
                                             <td className="font-bold font-roboto">{lego?.sellerName}</td>
                                             <td className="font-bold font-roboto">{lego?.toyName}</td>
