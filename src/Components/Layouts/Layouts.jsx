@@ -15,6 +15,7 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
 import TermsAndCondition from "../Pages/TermsAndCondition/TermsAndCondition";
 import PaymentMethod from "../Pages/PaymentMethod/PaymentMethod";
 import UpdateProfile from "../Shared/Authentication/UpdateProfile/UpdateProfile";
+import DashBoard from "../Dashboard/DashBoard";
 
 const router = createBrowserRouter([
     {
@@ -51,12 +52,12 @@ const router = createBrowserRouter([
                 loader: ({ params }) => {
                     // console.log(params)
                     return fetch(`https://batch-7-assignment-11-server.vercel.app/legos/${params?.id}`)
+
                 }
             },
             {
                 path: 'update/:id',
                 element: <UpdateToy></UpdateToy>,
-
             },
             {
                 path: 'blog',
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
             }
 
         ]
+    },
+    {
+        path: 'cart',
+        element: <DashBoard></DashBoard>
     }
 ])
 

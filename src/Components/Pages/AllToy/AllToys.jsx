@@ -4,7 +4,6 @@ import { LegoContext } from '../../AuthProvider/AuthProvider';
 import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
 import UseScroll from '../../UseScroll/UseScroll';
-
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -61,12 +60,11 @@ const AllToys = () => {
     const handleSearch = () => {
         // console.log(searchRef.current.value)
         setSearch(searchRef.current.value)
-        console.log(search)
+        // console.log(search)
     }
 
     return (
         <>
-
             <PageTitle titles={'AllToys'}></PageTitle>
             {
                 loading ?

@@ -93,7 +93,6 @@ const UpdateToy = () => {
 
                         </div>
 
-
                         <div className='flex flex-col w-full max-w-sm mx-auto'>
                             <label
                                 htmlFor="Quantity"

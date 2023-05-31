@@ -7,6 +7,7 @@ import { GiSelfLove } from 'react-icons/gi'
 import { CgShoppingCart } from 'react-icons/cg'
 import { LegoContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import UseCart from '../../Hook/UseCart/UseCart';
 
 const Header = () => {
 
@@ -16,6 +17,10 @@ const Header = () => {
     // const [inputWidth, setInputWidth] = useState(0)
     const { user, logOutUser } = useContext(LegoContext);
     // console.log(user)
+    const [, , carts] = UseCart();
+    // console.log(carts)
+    const totalProduct = carts?.reduce((previous, current) => current.quantity + previous, 0)
+    // console.log(totalProduct)
 
     const handleLogOutUser = () => {
         logOutUser()
@@ -89,18 +94,7 @@ const Header = () => {
                     <li className="md:mr-5">
                         <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'blog'}>Blog</NavLink>
                     </li>
-                    {
-                        user
-                        &&
-                        <li className="md:mr-5">
-                            <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'profile'}>
-                                <img
-                                    title={user?.displayName}
-                                    className='w-10 h-10 rounded-full'
-                                    src={user?.photoURL} alt="user photo" />
-                            </NavLink>
-                        </li>
-                    }
+
                     {
                         user
                             ?
@@ -112,6 +106,18 @@ const Header = () => {
                             : <li className="md:mr-5">
                                 <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'login'}>Login</NavLink>
                             </li>
+                    }
+                    {
+                        user
+                        &&
+                        <li className="md:mr-5">
+                            <NavLink className={({ isActive }) => isActive ? 'true' : 'false'} to={'profile'}>
+                                <img
+                                    title={user?.displayName}
+                                    className='w-10 h-10 rounded-full'
+                                    src={user?.photoURL} alt="user photo" />
+                            </NavLink>
+                        </li>
                     }
                     {!user &&
                         <li className="md:mr-5">
@@ -151,8 +157,9 @@ const Header = () => {
                 <Link className='mr-5 z-50'>
                     <GiSelfLove className='font-normal text-2xl'></GiSelfLove>
                 </Link>
-                <Link className='z-50'>
+                <Link to={'cart'} className='z-50'>
                     <CgShoppingCart className='font-normal text-2xl'></CgShoppingCart>
+                    <span className='text-xs text-red-600 font-bold absolute top-5 right-[85px]'>{totalProduct}</span>
                 </Link>
             </div>
 

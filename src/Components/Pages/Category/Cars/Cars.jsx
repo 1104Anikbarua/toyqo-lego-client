@@ -16,7 +16,7 @@ const Cars = () => {
     const category = 'car'
     const location = useLocation();
     // console.log(legos)
-    console.log(location)
+    // console.log(location)
 
     const totalPages = Math.ceil(totalLegos / itemsPerPage)
     // console.log(totalPages)
