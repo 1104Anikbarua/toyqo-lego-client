@@ -105,33 +105,33 @@ const ToyDetails = () => {
 
             <div className='flex flex-col lg:flex-row items-start justify-center gap-5'>
                 <div
-                    // data-aos="fade-down"
-                    // data-aos-easing="ease-in-sine"
-                    // data-aos-duration="500"
-                    // data-aos-delay="100"
+                    data-aos="fade-down"
+                    data-aos-easing="ease-in-sine"
+                    data-aos-duration="500"
+                    data-aos-delay="100"
 
                     className='bg-gray-100 rounded-md w-full max-w-md h-96 flex items-center justify-center'>
                     <img
-                        // data-aos="fade-down"
-                        // data-aos-easing="ease-in-sine"
-                        // data-aos-duration="1000"
-                        // data-aos-delay="1000"
+                        data-aos="fade-down"
+                        data-aos-easing="ease-in-sine"
+                        data-aos-duration="1000"
+                        data-aos-delay="1000"
                         className='rounded-md w-full max-w-sm mx-auto' src={legos?.toyPhoto} alt="" />
                 </div>
                 <div>
                     <h1
-                        // data-aos="fade-down"
-                        // data-aos-easing="ease-in-sine"
-                        // data-aos-duration="1000"
-                        // data-aos-delay="2800"
+                        data-aos="fade-down"
+                        data-aos-easing="ease-in-sine"
+                        data-aos-duration="1000"
+                        data-aos-delay="2800"
 
                         className='font-roboto font-bold text-xl mb-5'>{legos?.toyName}</h1>
 
                     <div
-                    // data-aos="fade-down"
-                    // data-aos-easing="ease-in-sine"
-                    // data-aos-duration="1000"
-                    // data-aos-delay="2300"
+                        data-aos="fade-down"
+                        data-aos-easing="ease-in-sine"
+                        data-aos-duration="1000"
+                        data-aos-delay="2300"
                     >
                         <Rating
                             style={{ width: 150, marginBottom: '20px' }}
@@ -142,26 +142,26 @@ const ToyDetails = () => {
 
                     <div className='flex items-center justify-start gap-5 mb-5'>
                         <h3
-                            // data-aos="fade-down"
-                            // data-aos-easing="ease-in-sine"
-                            // data-aos-duration="1000"
-                            // data-aos-delay="1900"
+                            data-aos="fade-down"
+                            data-aos-easing="ease-in-sine"
+                            data-aos-duration="1000"
+                            data-aos-delay="1900"
                             className='font-roboto font-medium text-xl'>Price: $ {legos?.price}</h3>
 
                         <h3
-                            // data-aos="fade-down"
-                            // data-aos-easing="ease-in-sine"
-                            // data-aos-duration="1000"
-                            // data-aos-delay="1500"
+                            data-aos="fade-down"
+                            data-aos-easing="ease-in-sine"
+                            data-aos-duration="1000"
+                            data-aos-delay="1500"
                             className='font-roboto font-medium text-xl line-through text-gray-400/80'>${'20'}</h3>
 
                     </div>
 
                     <p
-                        // data-aos="fade-down"
-                        // data-aos-easing="ease-in-sine"
-                        // data-aos-duration="1000"
-                        // data-aos-delay="1100"
+                        data-aos="fade-down"
+                        data-aos-easing="ease-in-sine"
+                        data-aos-duration="1000"
+                        data-aos-delay="1100"
                         className='font-roboto font-medium text-xl mb-5'>
                         Availablity:
 
@@ -170,38 +170,38 @@ const ToyDetails = () => {
                             {' ' + legos?.quantity} left in stock
                         </span></p>
                     <p
-                        // data-aos="fade-down"
-                        // data-aos-easing="ease-in-sine"
-                        // data-aos-duration="1000"
-                        // data-aos-delay="700"
+                        data-aos="fade-down"
+                        data-aos-easing="ease-in-sine"
+                        data-aos-duration="1000"
+                        data-aos-delay="700"
 
                         className='font-roboto font-medium text-xl mb-5 w-full max-w-lg'>{legos?.detail}</p>
                     <h3
-                        // data-aos="fade-down"
-                        // data-aos-easing="ease-in-sine"
-                        // data-aos-duration="1000"
-                        // data-aos-delay="400"
+                        data-aos="fade-down"
+                        data-aos-easing="ease-in-sine"
+                        data-aos-duration="1000"
+                        data-aos-delay="400"
 
                         className='font-roboto font-medium text-xl mb-5'>Seller Name: {legos?.sellerName}</h3>
                     <h3
-                        // data-aos="fade-down"
-                        // data-aos-easing="ease-in-sine"
-                        // data-aos-duration="1000"
-                        // data-aos-delay="100"
+                        data-aos="fade-down"
+                        data-aos-easing="ease-in-sine"
+                        data-aos-duration="1000"
+                        data-aos-delay="100"
                         className='font-roboto font-medium text-xl mb-5'>Seller Email: {legos?.sellerEmail}
                     </h3>
                     <div className='flex items-center mb-5'>
                         <h3
-                            // data-aos="fade-right"
-                            // data-aos-easing="ease-in-sine"
-                            // data-aos-duration="500"
-                            // data-aos-delay="100"
+                            data-aos="fade-right"
+                            data-aos-easing="ease-in-sine"
+                            data-aos-duration="500"
+                            data-aos-delay="100"
                             className='font-roboto font-medium text-xl mr-1'>Color:</h3>
                         <p
-                            // data-aos="fade-right"
-                            // data-aos-easing="ease-in-sine"
-                            // data-aos-duration="600"
-                            // data-aos-delay="400"
+                            data-aos="fade-right"
+                            data-aos-easing="ease-in-sine"
+                            data-aos-duration="600"
+                            data-aos-delay="400"
                             className='bg-red-400 w-5 h-5 mr-2'></p>
                         <p
                             data-aos="fade-right"
@@ -243,10 +243,10 @@ const ToyDetails = () => {
                     </div>
                     <button
                         onClick={() => handleAddToCart(legos)}
-                        // data-aos="zoom-in"
-                        // data-aos-easing="ease-in-sine"
-                        // data-aos-duration="2000"
-                        // data-aos-delay="100"
+                        data-aos="zoom-in"
+                        data-aos-easing="ease-in-sine"
+                        data-aos-duration="2000"
+                        data-aos-delay="100"
                         disabled={quantity > legos?.quantity}
                         className={`
                             bg-white w-40 rounded-md h-12 font-bold cursor-pointer shadow-md border border-gray-500 mb-5 disabled:bg-red-500 disabled:border-none disabled:text-white disabled:cursor-not-allowed`}
