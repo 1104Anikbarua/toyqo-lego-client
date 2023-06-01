@@ -23,7 +23,7 @@ const ToyDetails = () => {
     const { id } = useParams();
     // const { isLoading, refetch, data: legos } = useQuery({
     //     queryKey: ['legos', id], queryFn: async () => {
-    //         const response = await fetch(`http://localhost:5000/legos/${id}`)
+    //         const response = await fetch(`https://batch-7-assignment-11-server.vercel.app/legos/${id}`)
     //         return response.json();
     //     }
     // })
@@ -48,7 +48,7 @@ const ToyDetails = () => {
             toyImage: lego.toyPhoto,
             quantity: quantity,
         }
-        fetch('http://localhost:5000/carts', {
+        fetch('https://batch-7-assignment-11-server.vercel.app/carts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -69,7 +69,7 @@ const ToyDetails = () => {
                     timer: 1500
                 })
                 if (data.insertedId) {
-                    fetch(`http://localhost:5000/legos/${lego?._id}`, {
+                    fetch(`https://batch-7-assignment-11-server.vercel.app/legos/${lego?._id}`, {
                         method: 'PATCH',
                         headers: {
                             'content-type': 'application/json'

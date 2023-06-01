@@ -9,7 +9,7 @@ const UseCart = () => {
     const { isLoading, refetch: cartRefetch, data: carts } = useQuery({
         enabled: !!user?.email,
         queryKey: ['carts', user?.email], queryFn: async () => {
-            const response = await fetch(`http://localhost:5000/carts?email=${user?.email}`)
+            const response = await fetch(`https://batch-7-assignment-11-server.vercel.app/carts?email=${user?.email}`)
             return response.json();
         }
     })

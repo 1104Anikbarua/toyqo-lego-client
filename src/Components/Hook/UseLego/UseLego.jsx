@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 const UseLego = (id) => {
     const { isLoading, refetch, data: legos } = useQuery({
         queryKey: ['legos', id], queryFn: async () => {
-            const response = await fetch(`http://localhost:5000/legos/${id}`)
+            const response = await fetch(`https://batch-7-assignment-11-server.vercel.app/legos/${id}`)
             return response.json();
         }
     })
