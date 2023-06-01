@@ -15,7 +15,7 @@ const UpdateProfile = () => {
         event.preventDefault();
         const formData = new FormData()
         formData.append('image', photo)
-        fetch(`https://api.imgbb.com/1/upload?expiration=600&key=${imageKey}`, {
+        fetch(`https://api.imgbb.com/1/upload?key=${imageKey}`, {
             method: 'POST',
             body: formData
         })
