@@ -18,82 +18,87 @@ import UpdateProfile from "../Shared/Authentication/UpdateProfile/UpdateProfile"
 import DashBoard from "../Dashboard/DashBoard";
 
 const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Main></Main>,
-        errorElement: <NotFound></NotFound>,
-        children: [
-            {
-                path: '/',
-                element: <Common></Common>
-            },
-            {
-                path: 'alltoy',
-                element: <AllToys></AllToys>,
-            },
-            {
-                path: 'mytoy',
-                element: <RequireAuth>
-                    <MyToy></MyToy>
-                </RequireAuth>
-            },
-            {
-                path: 'addtoy',
-                element: <RequireAuth>
-                    <AddToy></AddToy>
-                </RequireAuth>
-
-            },
-            {
-                path: 'toy/:id',
-                element: <RequireAuth>
-                    <ToyDetails></ToyDetails>,
-                </RequireAuth>,
-                loader: ({ params }) => {
-                    // console.log(params)
-                    return fetch(`https://batch-7-assignment-11-server.vercel.app/legos/${params?.id}`)
-
-                }
-            },
-            {
-                path: 'update/:id',
-                element: <UpdateToy></UpdateToy>,
-            },
-            {
-                path: 'blog',
-                element: <Blog></Blog>
-            },
-            {
-                path: 'register',
-                element: <Register></Register>
-            },
-            {
-                path: 'login',
-                element: <Login></Login>,
-            },
-            {
-                path: 'profile',
-                element: <UpdateProfile></UpdateProfile>
-            },
-            {
-                path: 'about',
-                element: <AboutUs></AboutUs>
-            },
-            {
-                path: 'terms',
-                element: <TermsAndCondition></TermsAndCondition>
-            },
-            {
-                path: 'payment',
-                element: <PaymentMethod></PaymentMethod>
-            }
-
-        ]
-    },
-    {
-        path: 'cart',
-        element: <DashBoard></DashBoard>
-    }
-])
+  {
+    path: "/",
+    element: <Main></Main>,
+    errorElement: <NotFound></NotFound>,
+    children: [
+      {
+        path: "/",
+        element: <Common></Common>,
+      },
+      {
+        path: "alltoy",
+        element: <AllToys></AllToys>,
+      },
+      {
+        path: "mytoy",
+        element: (
+          <RequireAuth>
+            <MyToy></MyToy>
+          </RequireAuth>
+        ),
+      },
+      {
+        path: "addtoy",
+        element: (
+          <RequireAuth>
+            <AddToy></AddToy>
+          </RequireAuth>
+        ),
+      },
+      {
+        path: "toy/:id",
+        element: (
+          <RequireAuth>
+            <ToyDetails></ToyDetails>,
+          </RequireAuth>
+        ),
+        loader: ({ params }) => {
+          // console.log(params)
+          return fetch(
+            `https://batch-7-assignment-11-server.vercel.app/legos/${params?.id}`
+          );
+        },
+      },
+      {
+        path: "update/:id",
+        element: <UpdateToy></UpdateToy>,
+      },
+      {
+        path: "blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "register",
+        element: <Register></Register>,
+      },
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: "profile",
+        element: <UpdateProfile></UpdateProfile>,
+      },
+      {
+        path: "about",
+        element: <AboutUs></AboutUs>,
+      },
+      {
+        path: "terms",
+        element: <TermsAndCondition></TermsAndCondition>,
+      },
+      {
+        path: "payment",
+        element: <PaymentMethod></PaymentMethod>,
+      },
+    ],
+  },
+  {
+    path: "cart",
+    element: <DashBoard></DashBoard>,
+  },
+]);
 
 export default router;

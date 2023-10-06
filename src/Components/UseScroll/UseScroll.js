@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
 const UseScroll = (pathname) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [pathname])
-
-    return
+  return;
 };
 
 export default UseScroll;
